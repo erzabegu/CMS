@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    "react-require",
+    [
+      "auto-import",
+      {
+        "declarations": [
+          {
+            "default": "React",
+            "path": "react"
+          }
+        ]
+      }
+    ]
+  ]
+}

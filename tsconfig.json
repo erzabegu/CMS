@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist",
+        "target": "es5",
+        "module": "es6",
+        "jsx": "react",
+        "noImplicitAny": true,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "moduleResolution": "node",
+        "paths": {
+            "reader/molecules": ["src/components/molecules"],
+            "reader/organisms": ["src/components/organisms"],
+            "reader/templates": ["src/components/templates"],
+            "reader/layouts": ["src/components/layouts"],
+            "reader/atoms": ["src/components/atoms"],
+            "reader/pages": ["src/components/pages"],
+            "reader/services": ["src/services"],
+            "reader/routes": ["src/routes"],
+            "reader/styles": ["src/styles"],
+            "reader/hooks": ["src/hooks"],
+            "reader/store": ["src/store"],
+            "reader/types": ["src/types"],
+            "reader/utils": ["src/utils"]
+        }
+    }
+}
