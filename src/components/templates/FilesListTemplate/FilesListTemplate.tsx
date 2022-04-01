@@ -1,10 +1,17 @@
 import React from "react";
+import { FileType } from "reader/types";
 
-const FilesListTemplate = () => {
+interface Props {
+  files: Array<FileType>;
+}
+
+const FilesListTemplate = ({ files }: Props) => {
   return (
-      <div>
-
-      </div>
+    <div>
+      {files.map((file: any) => <h1>
+        {file.fileName}
+      </h1>)}
+    </div>
   )
 }
 

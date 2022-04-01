@@ -44,10 +44,11 @@ module.exports = {
     },
     devServer: {
         static: {
-          directory: path.join(__dirname, 'src'),
+            directory: path.join(__dirname, 'src'),
         },
         compress: true,
         port: 3000,
+        historyApiFallback: true,
     },
     plugins: [
         new HtmlWebpackPlugin({
