@@ -1,4 +1,4 @@
-export interface FileType {
+export interface IFile {
     id: number,
     fileName: string;
 }

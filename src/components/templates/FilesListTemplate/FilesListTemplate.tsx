@@ -1,18 +1,17 @@
 import React from "react";
-import { FileType } from "reader/types";
+import { Container } from "reader/layouts";
+import { FilesListOrganism } from "reader/organisms";
+import { IFile } from "reader/types";
 
 interface Props {
-  files: Array<FileType>;
+  files: Array<IFile>;
 }
 
 const FilesListTemplate = ({ files }: Props) => {
-  return (
-    <div>
-      {files.map((file: any) => <h1>
-        {file.fileName}
-      </h1>)}
-    </div>
-  )
+  return <Container>
+      <FilesListOrganism files={files}></FilesListOrganism>
+  </Container>
 }
 
 export default FilesListTemplate;
+
