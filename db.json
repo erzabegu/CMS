@@ -23,6 +23,26 @@
     {
       "id": 6,
       "fileName": "New file here"
+    },
+    {
+      "id": 7,
+      "fileName": "File23"
+    }
+  ],
+  "fileDetails": [
+    {
+      "pageId": 1,
+      "sections": [
+        {
+          "sectionId": 1,
+          "items": [
+            {
+              "itemId": 1,
+              "itemName": "Item 1"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

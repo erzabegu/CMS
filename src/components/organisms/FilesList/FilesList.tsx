@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import FileOpenOutlinedIcon from '@mui/icons-material/FileOpenOutlined';
 import { addFile, editFile, getFiles } from 'reader/services';
 import CircularProgress from '@mui/material/CircularProgress';
+import { useNavigate } from 'react-router-dom';
 
 
 interface Props {
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const FilesListOrganism = ({ files, setFiles }: Props) => {
+    const navigate = useNavigate();
     const [file, setFile] = useState<any>({})
     const [fileToEdit, setFileToEdit] = useState<number | null>(0);
     const [autofocus, setAutofocus] = useState<boolean>(false);
@@ -30,9 +32,9 @@ const FilesListOrganism = ({ files, setFiles }: Props) => {
         }))
     }
 
-    return <div style={{ display: 'flex', flexWrap: 'wrap', padding: '30px' }}>
+    return <>
         {files.map((file: IFile, index: number) => <StyledBox key={index}>
-            <FileOpenOutlinedIcon></FileOpenOutlinedIcon>
+            <FileOpenOutlinedIcon onClick={() => navigate(`/${file.id}`)}></FileOpenOutlinedIcon>
             <span>File name</span>
             <Input
                 autoFoucus={autofocus}
@@ -42,12 +44,12 @@ const FilesListOrganism = ({ files, setFiles }: Props) => {
                 onChange={(e) => { setFile({ id: file.id, fileName: e.target.value }) }}
                 onBlur={onBlur}
             />
-            {file.id === fileToEdit && <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end', padding: '10px' }}><CircularProgress size={15} color={"inherit"} /></div>}
+            {file.id === fileToEdit && <CircularWrapper><CircularProgress size={15} color={"inherit"} /></CircularWrapper>}
         </StyledBox>)}
         <StyledBox onClick={addNewFile}>
             +
         </StyledBox>
-    </div>
+    </>
 }
 
 export default FilesListOrganism
@@ -60,4 +62,10 @@ const StyledBox = styled.div`
     align-items: center;
     border: 1px solid black;
     min-width: 250px;
+`
+const CircularWrapper = styled.div`
+    display: flex; 
+    width: 100%;
+    justify-content: end; 
+    padding: 10px;
 `

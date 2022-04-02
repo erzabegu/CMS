@@ -13,7 +13,7 @@ const Routes = () => {
             element: <FilesList />
         },
         {
-            path: '/p',
+            path: '/:id',
             element: <FileDetails />
         },
     ]
