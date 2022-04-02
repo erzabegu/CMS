@@ -12,12 +12,8 @@ const FilesList = () => {
         getFiles().then((res: any) => setFiles(res.data))
     }, [])
 
-    const _addNewFile = () => {
-        addFile({ id: 5, fileName: "Newfile" }).then((res: any) => console.log(res))
-    }
-
     return (
-        <FilesListTemplate files={files} />
+        <FilesListTemplate files={files} setFiles={setFiles}/>
     )
 }
 

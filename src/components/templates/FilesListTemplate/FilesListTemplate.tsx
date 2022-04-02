@@ -5,11 +5,12 @@ import { IFile } from "reader/types";
 
 interface Props {
   files: Array<IFile>;
+  setFiles: any;
 }
 
-const FilesListTemplate = ({ files }: Props) => {
+const FilesListTemplate = ({ files , setFiles }: Props) => {
   return <Container>
-      <FilesListOrganism files={files}></FilesListOrganism>
+      <FilesListOrganism files={files} setFiles={setFiles}></FilesListOrganism>
   </Container>
 }
 

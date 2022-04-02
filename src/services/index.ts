@@ -1,1 +1,1 @@
-export { getFiles } from './FileServices'
+export { getFiles, editFile, addFile } from './FileServices'
