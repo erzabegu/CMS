@@ -2,7 +2,7 @@
   "files": [
     {
       "id": 1,
-      "fileName": "file 100"
+      "fileName": "New file"
     },
     {
       "id": 2,
@@ -22,16 +22,13 @@
     },
     {
       "id": 6,
-      "fileName": "New file here"
-    },
-    {
-      "id": 7,
-      "fileName": "File23"
+      "fileName": "File6"
     }
   ],
   "fileDetails": [
     {
       "pageId": 1,
+      "pageName": "Page 1",
       "sections": [
         {
           "sectionId": 1,

@@ -6,6 +6,8 @@ import FileOpenOutlinedIcon from '@mui/icons-material/FileOpenOutlined';
 import { addFile, editFile, getFiles } from 'reader/services';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useNavigate } from 'react-router-dom';
+import { InputWrapper } from 'reader/molecules';
+
 
 
 interface Props {
@@ -35,8 +37,8 @@ const FilesListOrganism = ({ files, setFiles }: Props) => {
     return <>
         {files.map((file: IFile, index: number) => <StyledBox key={index}>
             <FileOpenOutlinedIcon onClick={() => navigate(`/${file.id}`)}></FileOpenOutlinedIcon>
-            <span>File name</span>
-            <Input
+            <InputWrapper
+                labelName={'FileName'}
                 autoFoucus={autofocus}
                 type={'text'}
                 defaultValue={file.fileName}

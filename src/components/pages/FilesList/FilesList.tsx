@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { getFiles } from "reader/services";
 import { FilesListTemplate } from "reader/templates";
 import { IFile } from "reader/types";
-import { addFile } from "src/services/FileServices";
 
 const FilesList = () => {
 

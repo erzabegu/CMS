@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet, useRoutes } from "react-router-dom";
-import { FileDetails, FilesList } from "reader/pages";
+import { DragAndDrop, FileDetails, FilesList } from "reader/pages";
 
 const Routes = () => {
     const routes = [
@@ -15,6 +15,10 @@ const Routes = () => {
         {
             path: '/:id',
             element: <FileDetails />
+        },
+        {
+            path: '/dnd',
+            element: <DragAndDrop />
         },
     ]
     const routing = useRoutes(routes);
