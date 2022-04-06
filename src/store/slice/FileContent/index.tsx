@@ -1,0 +1,1 @@
+export { default as contentSlice, setContent } from './FileContent.slice'

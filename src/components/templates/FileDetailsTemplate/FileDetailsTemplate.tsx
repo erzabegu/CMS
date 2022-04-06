@@ -1,18 +1,23 @@
 import React from "react";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 import { Input } from "reader/atoms";
 import { Container } from "reader/layouts";
+import { DropableContainer, WidgetList } from "reader/organisms";
 import { IContent } from "reader/types";
 import styled from "styled-components";
+
 interface Props {
     fileDetails?: Array<IContent>,
     setFileDetails?: any;
 }
 
-
+interface DropResult {
+    name: string;
+}
 const FileDetailsTemplate = ({ fileDetails, setFileDetails }: Props) => {
 
     const addPages = (index: any, item: any) => {
-        console.log(index)
         const newTodos = [...fileDetails];
         newTodos[index] = item;
         setFileDetails(newTodos);
@@ -24,37 +29,33 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails }: Props) => {
         setFileDetails(newTodos)
     }
 
-
     return (
-        <Container>
-                <div style={{ display: 'flex' }}>
-                    <div style={{ flexGrow: 4 }}>
-                        {fileDetails.map((page: any, index: any) => <div key={index} style={{ backgroundColor: '#f7f7f7', display: 'flex', justifyContent: 'space-between' }}>
-                            <PagesWrapper><Input
-                                type='text'
-                                defaultValue={page.pageId}
-                                onClick={() => console.log('clicked')}
-                            /></PagesWrapper>
-                            <SectionWrapper>{page.sections.map((s: any) => <>
-                                <StyledSection> section {s.sectionId}
-                                    {s.items.map((item: any) => <Input
-                                        type='text'
-                                        defaultValue={item.text}
-                                        onClick={() => console.log('clicked')}
-                                    />)}<span onClick={() => console.log('duhet me add ni item')}>+</span>
-                                </StyledSection>
-                            </>
-                            )}
-                                <div onClick={() => addSection(page.pageId - 1, page.sections.length)} >+</div>
-                            </SectionWrapper>
-                        </div>)}
-                        <div onClick={() => addPages(fileDetails.length, { pageId: fileDetails.length + 1, sections: [{ sectionId: 1, items: [{ itemId: 1, type: "", text: "", fontSize: '' }] }] })}>+</div>
+        <>
+            <DndProvider backend={HTML5Backend}>
+                <Container>
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ flexGrow: 4 }}>
+                            {fileDetails.map((page: any, index: any) => <div key={index} style={{ backgroundColor: '#f7f7f7', display: 'flex', justifyContent: 'space-between' }}>
+                                <PagesWrapper key={index}><Input
+                                    type='text'
+                                    defaultValue={page.pageId}
+                                /></PagesWrapper>
+                                <SectionWrapper>{page.sections.map((s: any, index: number) => <>
+                                    <StyledSection key={index}> <DropableContainer pageName={page.pageId} name={s.sectionId} >{s.sectionId}</DropableContainer></StyledSection>
+                                </>
+                                )}
+                                    <div onClick={() => addSection(page.pageId - 1, page.sections.length)} >+</div>
+                                </SectionWrapper>
+                            </div>)}
+                            <div onClick={() => addPages(fileDetails.length, { pageId: fileDetails.length + 1, sections: [{ sectionId: 1, items: [{ itemId: 1, }] }] })}>+</div>
+                        </div>
+                        <div style={{ flexGrow: 1 }}>
+                            <WidgetList fileDetails={fileDetails} setFileDetails={setFileDetails} />
+                        </div>
                     </div>
-                    <div style={{ flexGrow: 1 }}>
-
-                    </div>
-                </div>
-        </Container>
+                </Container>
+            </DndProvider>
+        </>
     )
 }
 
@@ -78,7 +79,6 @@ const StyledSection = styled.div`
     // width: 900px;
     margin: 2px; 
     transition: 0.5s all;
-    border: 1px solid grey;
     &:hover {
         background-color: #fefefe,
     }

@@ -3,7 +3,7 @@
         "outDir": "./dist",
         "target": "es5",
         "module": "es6",
-        "jsx": "react",
+        "jsx": "react-jsx",
         "noImplicitAny": true,
         "allowSyntheticDefaultImports": true,
         "baseUrl": ".",
