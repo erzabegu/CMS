@@ -3,9 +3,8 @@ import { useDrop } from "react-dnd";
 
 interface DropResult {
     name: string;
-    children: any;
+    children?: any;
     pageName: any;
-
 }
 
 const DropableContainer = ({ name, children, pageName }: DropResult) => {

@@ -1,15 +1,18 @@
-import React from 'react'
 import { useDrag } from 'react-dnd';
-import { Input } from 'reader/atoms'
+import styled from 'styled-components';
 
 interface DropResult {
     name?: string;
     pageName?: string;
     fileDetails?: any;
     setFileDetails?: any;
+    handleDroppableEvent?(dropResult: DropResult): void;
+    children: any;
+    tipi?: any;
 }
 
-const WidgetList = ({ name, pageName, fileDetails, setFileDetails }: DropResult) => {
+
+const WidgetList = ({ fileDetails, handleDroppableEvent, children, tipi }: DropResult) => {
 
     const [{ isDragging }, drag] = useDrag(() => ({
         type: 'box',
@@ -17,7 +20,8 @@ const WidgetList = ({ name, pageName, fileDetails, setFileDetails }: DropResult)
         end: (item, monitor) => {
             const dropResult = monitor.getDropResult<DropResult>()
             if (item && dropResult) {
-                alert(`You dropped ${item.name} into section: ${dropResult.name} page: ${dropResult.pageName}!`)
+                handleDroppableEvent({ ...dropResult, tipi: tipi })
+                alert(`You dropped ${item.name} into section: ${dropResult.name} page: ${dropResult.pageName} type: ${tipi}! `)
             }
         },
         collect: (monitor) => ({
@@ -25,12 +29,15 @@ const WidgetList = ({ name, pageName, fileDetails, setFileDetails }: DropResult)
             handlerId: monitor.getHandlerId(),
         }),
     }))
-    return <div ref={drag}>
-        <Input
-            type='text'
-            defaultValue={'defaultName'}
-        />
-    </div>
+
+    return <StyledWrapper ref={drag}>
+        {children}
+    </StyledWrapper>
 }
 
 export default WidgetList
+
+const StyledWrapper = styled.div`
+    display: flex;
+    padding: 5px;
+`

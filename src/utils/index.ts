@@ -1,1 +1,1 @@
-export { default as request} from './axiosInstance'
+export { default as request } from './axiosInstance'

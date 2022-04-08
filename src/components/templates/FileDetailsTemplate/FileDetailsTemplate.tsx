@@ -1,31 +1,33 @@
-import React from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { Input } from "reader/atoms";
 import { Container } from "reader/layouts";
-import { DropableContainer, WidgetList } from "reader/organisms";
-import { IContent } from "reader/types";
+import { DropableContainer, RenderItems, WidgetList } from "reader/organisms";
+import { IContent, ISectionItem } from "reader/types";
+import TextFieldsIcon from '@mui/icons-material/TextFields';
+import ImageIcon from '@mui/icons-material/Image';
 import styled from "styled-components";
+
 
 interface Props {
     fileDetails?: Array<IContent>,
-    setFileDetails?: any;
+    setFileDetails: any;
+    handleDroppableEvent(dropResult: any): void;
 }
 
-interface DropResult {
-    name: string;
-}
-const FileDetailsTemplate = ({ fileDetails, setFileDetails }: Props) => {
+
+const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent }: Props) => {
+
 
     const addPages = (index: any, item: any) => {
         const newTodos = [...fileDetails];
-        newTodos[index] = item;
-        setFileDetails(newTodos);
+        newTodos.push({ pageId: item, pageName: 'new page', sections: [{ sectionId: 1, items: [] }] })
+        setFileDetails(newTodos)
     }
 
     const addSection = (parentId: number, index: number) => {
         const newTodos = [...fileDetails];
-        newTodos[parentId].sections[index] = { sectionId: index + 1, items: [{ itemId: 1, itemName: 'new item', }] }
+        newTodos[parentId].sections.push({ sectionId: index + 1, items: [] })
         setFileDetails(newTodos)
     }
 
@@ -34,23 +36,25 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails }: Props) => {
             <DndProvider backend={HTML5Backend}>
                 <Container>
                     <div style={{ display: 'flex' }}>
-                        <div style={{ flexGrow: 4 }}>
-                            {fileDetails.map((page: any, index: any) => <div key={index} style={{ backgroundColor: '#f7f7f7', display: 'flex', justifyContent: 'space-between' }}>
-                                <PagesWrapper key={index}><Input
+                        <div style={{ flexGrow: 6 }}>
+                            {fileDetails.map((page: any, index: any) => <div key={index} style={{ backgroundColor: '#f7f7f7', display: 'flex', justifyContent: 'space-between', padding: '5px' }}>
+                                <PagesWrapper><Input
                                     type='text'
                                     defaultValue={page.pageId}
                                 /></PagesWrapper>
                                 <SectionWrapper>{page.sections.map((s: any, index: number) => <>
-                                    <StyledSection key={index}> <DropableContainer pageName={page.pageId} name={s.sectionId} >{s.sectionId}</DropableContainer></StyledSection>
-                                </>
-                                )}
-                                    <div onClick={() => addSection(page.pageId - 1, page.sections.length)} >+</div>
+                                    <StyledSection key={index}> <DropableContainer pageName={page.pageId} name={s.sectionId} >{1}</DropableContainer>
+                                        {s.items.map((item: ISectionItem) => <RenderItems type={item.type} />)}
+                                    </StyledSection>
+                                </>)}
+                                    <span onClick={() => addSection(page.pageId - 1, page.sections.length)}>+</span>
                                 </SectionWrapper>
                             </div>)}
-                            <div onClick={() => addPages(fileDetails.length, { pageId: fileDetails.length + 1, sections: [{ sectionId: 1, items: [{ itemId: 1, }] }] })}>+</div>
+                            <span onClick={() => addPages(fileDetails.length, fileDetails.length + 1)}>+</span>
                         </div>
                         <div style={{ flexGrow: 1 }}>
-                            <WidgetList fileDetails={fileDetails} setFileDetails={setFileDetails} />
+                            <WidgetList fileDetails={fileDetails} handleDroppableEvent={handleDroppableEvent} children={<TextFieldsIcon />} tipi={'text'} />
+                            <WidgetList fileDetails={fileDetails} handleDroppableEvent={handleDroppableEvent} children={<ImageIcon />} tipi={'image'} />
                         </div>
                     </div>
                 </Container>
@@ -71,7 +75,7 @@ const PagesWrapper = styled.div`
 const SectionWrapper = styled.div`
     display: flex;
     flex-direction: column; 
-    flex-grow: 2;
+    flex-grow: 3;
 `
 
 const StyledSection = styled.div`
