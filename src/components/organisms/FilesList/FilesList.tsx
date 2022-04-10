@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import { Input } from 'reader/atoms';
 import { IFile } from 'reader/types'
-import styled from 'styled-components';
 import FileOpenOutlinedIcon from '@mui/icons-material/FileOpenOutlined';
 import { addFile, editFile, getFiles } from 'reader/services';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useNavigate } from 'react-router-dom';
 import { InputWrapper } from 'reader/molecules';
-
+import AddIcon from '@mui/icons-material/Add';
+import { FilesWrapper, StyledBox, StyledPlus } from './styled';
 
 
 interface Props {
@@ -34,9 +33,9 @@ const FilesListOrganism = ({ files, setFiles }: Props) => {
         }))
     }
 
-    return <>
-        {files.map((file: IFile, index: number) => <StyledBox key={index}>
-            <FileOpenOutlinedIcon onClick={() => navigate(`/${file.id}`)}></FileOpenOutlinedIcon>
+    return <FilesWrapper>
+        {files.map((file: IFile, index: number) => <><StyledBox key={index}>
+            <span style={{ cursor: 'pointer' }}><FileOpenOutlinedIcon onClick={() => navigate(`/${file.id}`)}></FileOpenOutlinedIcon></span>
             <InputWrapper
                 labelName={'FileName'}
                 autoFoucus={autofocus}
@@ -46,28 +45,10 @@ const FilesListOrganism = ({ files, setFiles }: Props) => {
                 onChange={(e) => { setFile({ id: file.id, fileName: e.target.value }) }}
                 onBlur={onBlur}
             />
-            {file.id === fileToEdit && <CircularWrapper><CircularProgress size={15} color={"inherit"} /></CircularWrapper>}
-        </StyledBox>)}
-        <StyledBox onClick={addNewFile}>
-            +
-        </StyledBox>
-    </>
+            {file.id === fileToEdit && <CircularProgress size={12} color={"inherit"} style={{ padding: '3px' }} />}
+            {files.length === index + 1 && <StyledPlus><AddIcon style={{ height: '15px', width: '15px', margin: '2px 2px' }} onClick={addNewFile} /></StyledPlus>}
+        </StyledBox></>)}
+    </FilesWrapper>
 }
 
 export default FilesListOrganism
-
-const StyledBox = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-    margin: 3px;
-    align-items: center;
-    border: 1px solid black;
-    min-width: 250px;
-`
-const CircularWrapper = styled.div`
-    display: flex; 
-    width: 100%;
-    justify-content: end; 
-    padding: 10px;
-`

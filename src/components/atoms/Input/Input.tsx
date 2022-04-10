@@ -28,6 +28,7 @@ interface Props {
 const Input = ({ type, defaultValue, onChange, onBlur, onClick, onFocus, autoFoucus, style, fontSize, fontWeight, color, lineHeight, textAlign, margin, padding, ref }: Props) => {
     return <>
         <StyledInput
+            spellCheck={false}
             type={type}
             defaultValue={defaultValue}
             onChange={onChange}

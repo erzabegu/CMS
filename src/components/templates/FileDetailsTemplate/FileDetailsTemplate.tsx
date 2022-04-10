@@ -2,7 +2,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { Input } from "reader/atoms";
 import { Container } from "reader/layouts";
-import { DropableContainer, RenderItems, WidgetList } from "reader/organisms";
+import { DropableContainer, Header, RenderItems, WidgetList } from "reader/organisms";
 import { IContent, ISectionItem } from "reader/types";
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import ImageIcon from '@mui/icons-material/Image';
@@ -34,8 +34,10 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
     return (
         <>
             <DndProvider backend={HTML5Backend}>
+                <Header />
                 <Container>
                     <div style={{ display: 'flex' }}>
+                        {/* <div>{fileDetails.map((file) => <h1>{file.pageId}</h1>)}<span onClick={() => addPages(fileDetails.length, fileDetails.length + 1)}>+</span></div> */}
                         <div style={{ flexGrow: 6 }}>
                             {fileDetails.map((page: any, index: any) => <div key={index} style={{ backgroundColor: '#f7f7f7', display: 'flex', justifyContent: 'space-between', padding: '5px' }}>
                                 <PagesWrapper><Input

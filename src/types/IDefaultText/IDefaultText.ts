@@ -7,4 +7,5 @@ export interface IDefaultText {
     margin?: string;
     alignSelf?: string;
     padding?: string;
+    backgroundColor?: string;
 }

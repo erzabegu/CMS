@@ -3,16 +3,18 @@ import { IDefaultText } from "src/types/IDefaultText";
 import styled from "styled-components";
 
 const StyledInput = styled.input<IDefaultText>`
-    // background-color: ${theme.colors.secondary.inputBackground};
+    background-color: ${({ backgroundColor, theme }) => !!backgroundColor ? `${backgroundColor}` : `${theme.colors.primary.lightGrey}`};
     border: none;
     padding: 5px 10px;
     text-align: center;
     &:focus {
         outline: none;
-        background-color: ${theme.colors.secondary.defaultButtonBackgroundHover};
+        background-color: #F0EEF0;
     }
     transition: 1s all;
-    font-size: ${({ fontSize, theme }) => !!fontSize ? `${fontSize}px` : `${theme.fontSize.md}px`};
+    width: 70%;
+    margin: 0px auto;
+    font-size: ${({ fontSize, theme }) => !!fontSize ? `${fontSize}px` : `${theme.fontSize.sm}px`};
     font-weight: ${({ fontWeight, theme }) => fontWeight || theme.fontWeight.regular};
     color: ${({ theme, color }) => color || theme.colors.primary.black};
     line-height: ${({ lineHeight }) => lineHeight || "unset"};
@@ -20,6 +22,9 @@ const StyledInput = styled.input<IDefaultText>`
     margin: ${({ margin }) => margin && margin};
     padding: ${({ padding }) => padding && padding};
     font-style: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 7px;
 `
 
 export { StyledInput }

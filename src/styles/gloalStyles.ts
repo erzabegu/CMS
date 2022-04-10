@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Lato', sans-serif !important;
   } 
   body {
-    overflow-y: scroll !important;
+    // overflow-y: scroll !important;
     transition: all 1ms linear;
     box-sizing: border-box;
     padding: 0 !important;

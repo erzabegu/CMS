@@ -2,7 +2,7 @@
   "files": [
     {
       "id": 1,
-      "fileName": "New file"
+      "fileName": "new File"
     },
     {
       "id": 2,
@@ -10,7 +10,7 @@
     },
     {
       "id": 3,
-      "fileName": "File3"
+      "fileName": "Template Details"
     },
     {
       "id": 4,
@@ -23,6 +23,14 @@
     {
       "id": 6,
       "fileName": "File6"
+    },
+    {
+      "id": 7,
+      "fileName": "File7"
+    },
+    {
+      "id": 8,
+      "fileName": "File8"
     }
   ],
   "fileDetails": [
@@ -32,9 +40,7 @@
       "sections": [
         {
           "sectionId": 1,
-          "items": [
-           
-          ]
+          "items": []
         }
       ]
     }
