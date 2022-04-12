@@ -32,7 +32,7 @@ const StyledBox = styled.div`
     margin: 10px;
     padding: 5px 0px;
     align-items: center;
-    // border: 1px solid #959595;
+    border: 1px solid #959595;
     border-radius: 7px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, #959595 0px 0px 0px 1px;
 `

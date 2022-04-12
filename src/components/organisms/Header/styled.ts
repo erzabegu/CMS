@@ -4,8 +4,9 @@ const StyledHeader = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // box-shadow: 0 4px 2px -2px gray;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding: 5px 15px;
+    // background-color: #f2f2f2;
 `
 
 export { StyledHeader }

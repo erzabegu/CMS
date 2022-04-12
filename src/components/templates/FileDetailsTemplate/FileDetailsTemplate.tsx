@@ -7,6 +7,8 @@ import { IContent, ISectionItem } from "reader/types";
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import ImageIcon from '@mui/icons-material/Image';
 import styled from "styled-components";
+import { theme } from 'reader/styles'
+import { FileDetailsWrapper, PagesWrapper, SectionsWrapper, StyledWidgets } from "./styled";
 
 
 interface Props {
@@ -35,57 +37,34 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
         <>
             <DndProvider backend={HTML5Backend}>
                 <Header />
-                <Container>
-                    <div style={{ display: 'flex' }}>
-                        {/* <div>{fileDetails.map((file) => <h1>{file.pageId}</h1>)}<span onClick={() => addPages(fileDetails.length, fileDetails.length + 1)}>+</span></div> */}
-                        <div style={{ flexGrow: 6 }}>
-                            {fileDetails.map((page: any, index: any) => <div key={index} style={{ backgroundColor: '#f7f7f7', display: 'flex', justifyContent: 'space-between', padding: '5px' }}>
-                                <PagesWrapper><Input
-                                    type='text'
-                                    defaultValue={page.pageId}
-                                /></PagesWrapper>
-                                <SectionWrapper>{page.sections.map((s: any, index: number) => <>
-                                    <StyledSection key={index}> <DropableContainer pageName={page.pageId} name={s.sectionId} >{1}</DropableContainer>
-                                        {s.items.map((item: ISectionItem) => <RenderItems type={item.type} />)}
-                                    </StyledSection>
-                                </>)}
-                                    <span onClick={() => addSection(page.pageId - 1, page.sections.length)}>+</span>
-                                </SectionWrapper>
-                            </div>)}
-                            <span onClick={() => addPages(fileDetails.length, fileDetails.length + 1)}>+</span>
-                        </div>
-                        <div style={{ flexGrow: 1 }}>
-                            <WidgetList fileDetails={fileDetails} handleDroppableEvent={handleDroppableEvent} children={<TextFieldsIcon />} tipi={'text'} />
-                            <WidgetList fileDetails={fileDetails} handleDroppableEvent={handleDroppableEvent} children={<ImageIcon />} tipi={'image'} />
-                        </div>
-                    </div>
-                </Container>
+                <FileDetailsWrapper>
+                    <PagesWrapper>
+                        {fileDetails.map((page: any, index: any) => <div style={{ padding: '10px 0px', }}>
+                            <Input
+                                type='text'
+                                defaultValue={page.pageName}
+                            />
+                        </div>)}
+                        <span style={{ color: 'rgb(180 180 180)', fontSize: '22px' }} onClick={() => addPages(fileDetails.length, fileDetails.length + 1)}>+</span>
+                    </PagesWrapper>
+                    <SectionsWrapper>
+                        {fileDetails.map((page: any, index: any) => <>
+                            {page.sections.map((s: any, index: number) => <>
+                                <DropableContainer pageName={page.pageId} name={s.sectionId} >
+                                    {s.items.map((item: ISectionItem) => <RenderItems type={item.type} />)}
+                                </DropableContainer>
+                            </>)}
+                            <span style={{ color: '#c1c1c1', fontSize: '22px' }} onClick={() => addSection(page.pageId - 1, page.sections.length)}>+</span>
+                        </>)}
+                    </SectionsWrapper>
+                    <StyledWidgets>
+                        <WidgetList fileDetails={fileDetails} handleDroppableEvent={handleDroppableEvent} children={<TextFieldsIcon />} tipi={'text'} />
+                        <WidgetList fileDetails={fileDetails} handleDroppableEvent={handleDroppableEvent} children={<ImageIcon />} tipi={'image'} />
+                    </StyledWidgets>
+                </FileDetailsWrapper>
             </DndProvider>
         </>
     )
 }
 
 export default FileDetailsTemplate;
-
-
-const PagesWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    padding: 10px;
-`
-const SectionWrapper = styled.div`
-    display: flex;
-    flex-direction: column; 
-    flex-grow: 3;
-`
-
-const StyledSection = styled.div`
-    height: auto;
-    // width: 900px;
-    margin: 2px; 
-    transition: 0.5s all;
-    &:hover {
-        background-color: #fefefe,
-    }
-`

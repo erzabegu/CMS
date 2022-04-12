@@ -9,7 +9,7 @@ module.exports = {
     },
     target: 'web',
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.png'],
+        extensions: ['.ts', '.tsx', '.js'],
         alias: {
             process: "process/browser",
             src: path.resolve(".", "src"),
@@ -38,7 +38,7 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/,
-                use: 'url-loader',
+                use: 'file-loader',
             }
         ],
     },

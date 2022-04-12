@@ -1,5 +1,6 @@
 import React from "react";
 import { useDrop } from "react-dnd";
+import styled from "styled-components";
 
 interface DropResult {
     name: string;
@@ -18,13 +19,22 @@ const DropableContainer = ({ name, children, pageName }: DropResult) => {
     }))
 
     const isActive = canDrop && isOver
-    let backgroundColor = '#fefefe'
+    let backgroundColor = '#f6f4f4'
     if (isActive) {
-        backgroundColor = 'lightgrey'
+        backgroundColor = '#d98cb3'
     } else if (canDrop) {
-        backgroundColor = 'lightgreen'
+        backgroundColor = '#d9d9d9'
     }
-    return <div ref={drop} role={'1'} style={{ backgroundColor }}>{children}</div>
+    return <StyledDroppableContainer ref={drop} role={'1'} style={{ backgroundColor: backgroundColor }}>{children}</StyledDroppableContainer>
 }
 
 export default DropableContainer
+
+const StyledDroppableContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    margin: 5px;
+    min-height: 50px;
+`

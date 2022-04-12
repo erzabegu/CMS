@@ -12,7 +12,7 @@ const Image = ({ src }: Props) => {
 export default Image
 
 const StyledImage = styled.img`
-    max-width: 400px;
-    height: 40px;
+    max-width: 100px;
+    height: 50px;
     object-fit: contain;
 `

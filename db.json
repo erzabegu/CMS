@@ -2,11 +2,11 @@
   "files": [
     {
       "id": 1,
-      "fileName": "new File"
+      "fileName": "Edit File Name"
     },
     {
       "id": 2,
-      "fileName": "File 4675"
+      "fileName": "New file"
     },
     {
       "id": 3,
@@ -31,6 +31,10 @@
     {
       "id": 8,
       "fileName": "File8"
+    },
+    {
+      "id": 9,
+      "fileName": "File9"
     }
   ],
   "fileDetails": [
