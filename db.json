@@ -52,5 +52,19 @@
         }
       ]
     }
+  ],
+  "widgetsList": [
+    {
+      "iconName": "TextFieldsIcon",
+      "type": "text"
+    },
+    {
+      "iconName": "ImageIcon",
+      "type": "image"
+    },
+    {
+      "iconName": "DonutLargeSharpIcon",
+      "type": "chart"
+    }
   ]
 }

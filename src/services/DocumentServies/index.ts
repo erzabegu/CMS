@@ -10,3 +10,12 @@ export const getFileContent = async () => {
         return e
     }
 }
+
+export const getWidgetList = async () => {
+    try {
+        return await request(RequestMethods.GET, 'widgetsList')
+    }
+    catch (e) {
+        return e
+    }
+}

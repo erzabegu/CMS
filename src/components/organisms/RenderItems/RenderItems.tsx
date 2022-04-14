@@ -1,4 +1,4 @@
-import { RenderImage, RenderText } from "reader/molecules"
+import { RenderChart, RenderImage, RenderText } from "reader/molecules"
 
 interface Props {
     type: string;
@@ -12,6 +12,8 @@ const RenderItems = ({ type, item, handleUpdate }: Props) => {
             return <RenderText handleUpdate={handleUpdate} item={item} />
         case 'image':
             return <RenderImage />
+        case 'chart':
+            return <RenderChart />
         default:
             break;
     }

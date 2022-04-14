@@ -20,34 +20,13 @@ interface Props {
     ref?: any;
     outline?: any;
     fontStyle?: any;
-
 }
 
 
 
-const Input = ({ type, defaultValue, onChange, onBlur, onClick, onFocus, autoFoucus, outline, style, fontStyle, fontSize, fontWeight, color, lineHeight, textAlign, margin, padding, ref }: Props) => {
+const Input = (props: Props) => {
     return <>
-        <StyledInput
-            spellCheck={false}
-            type={type}
-            defaultValue={defaultValue}
-            onChange={onChange}
-            onClick={onClick}
-            onBlur={onBlur}
-            onFocus={onFocus}
-            autoFocus={autoFoucus}
-            style={style}
-            fontSize={fontSize}
-            fontWeight={fontWeight}
-            color={color}
-            lineHeight={lineHeight}
-            textAlign={textAlign}
-            margin={margin}
-            padding={padding}
-            ref={ref}
-            outline={outline}
-            fontStyle={fontStyle}
-        />
+        <StyledInput type={props.type} defaultValue={props.defaultValue} {...props} />
     </>
 }
 

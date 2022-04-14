@@ -1,6 +1,10 @@
 import { useDrag } from 'react-dnd';
 import styled from 'styled-components';
 
+import TextFieldsIcon from '@mui/icons-material/TextFields';
+import ImageIcon from '@mui/icons-material/Image';
+import DonutLargeSharpIcon from '@mui/icons-material/DonutLargeSharp';
+
 interface DropResult {
     name?: string;
     pageName?: string;
@@ -11,6 +15,17 @@ interface DropResult {
     tipi?: any;
 }
 
+
+const RenderIcons = (iconName: string) => {
+    switch (iconName) {
+        case 'TextFieldsIcon':
+            return <TextFieldsIcon />
+        case 'ImageIcon':
+            return <ImageIcon />
+        case 'DonutLargeSharpIcon':
+            return <DonutLargeSharpIcon />
+    }
+}
 
 const WidgetList = ({ fileDetails, handleDroppableEvent, children, tipi }: DropResult) => {
 
@@ -31,7 +46,7 @@ const WidgetList = ({ fileDetails, handleDroppableEvent, children, tipi }: DropR
     }))
 
     return <StyledWrapper ref={drag}>
-        {children}
+        {RenderIcons(children)}
     </StyledWrapper>
 }
 

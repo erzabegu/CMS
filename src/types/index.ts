@@ -6,3 +6,4 @@ export type { IFontWeight } from "./ITheme/IFontWeight";
 export type { ISectionItem } from "./ISectionItem";
 export type { ISection } from './ISection'
 export type { IContent } from './IContent'
+export type { IWidgetsList } from './IWidgetsList'

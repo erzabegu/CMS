@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
 import { getFileContent } from "reader/services";
 import { FileDetailsTemplate } from "reader/templates";
-import { IContent } from "reader/types";
+import { IContent, IWidgetsList } from "reader/types";
+import { getWidgetList } from "src/services/DocumentServies";
 
 
 const FileDetails = () => {
     const [fileDetails, setFileDetails] = useState<Array<IContent>>([])
+    const [widgetsList, setWidgestList] = useState<Array<IWidgetsList>>([])
 
     useEffect(() => {
         getFileContent().then((res: any) => {
             setFileDetails(res.data)
         })
+        getWidgetList().then((res: any) => setWidgestList(res.data))
     }, [])
-
-
 
     // const setActiveIndex = () => {
     //     setFileDetails((currentFileDetails: any) => {
@@ -23,7 +24,7 @@ const FileDetails = () => {
 
     const _handleDroppableEvent = (dropResult: any) => {
         setFileDetails((currentFileDetails: any) => {
-            console.log('setFileDetails', currentFileDetails)
+            // console.log('setFileDetails', currentFileDetails)
             currentFileDetails.find((page: any) => {
                 if (page.pageId === dropResult.pageName) {
                     page.sections.find((section: any) => {
@@ -40,7 +41,7 @@ const FileDetails = () => {
 
     return (
         <>
-            <FileDetailsTemplate handleDroppableEvent={_handleDroppableEvent} fileDetails={fileDetails} setFileDetails={setFileDetails} />
+            <FileDetailsTemplate handleDroppableEvent={_handleDroppableEvent} fileDetails={fileDetails} setFileDetails={setFileDetails} widgetsList={widgetsList} />
         </>
     )
 }
