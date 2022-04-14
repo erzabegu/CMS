@@ -1,14 +1,14 @@
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { Input } from "reader/atoms";
-import { Container } from "reader/layouts";
 import { DropableContainer, Header, RenderItems, WidgetList } from "reader/organisms";
 import { IContent, ISectionItem } from "reader/types";
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import ImageIcon from '@mui/icons-material/Image';
-import styled from "styled-components";
-import { theme } from 'reader/styles'
 import { FileDetailsWrapper, PagesWrapper, SectionsWrapper, StyledWidgets } from "./styled";
+import { useEffect, useState } from "react";
+import TableRowsRoundedIcon from '@mui/icons-material/TableRowsRounded';
+import ViewColumnRoundedIcon from '@mui/icons-material/ViewColumnRounded';
 
 
 interface Props {
@@ -20,6 +20,8 @@ interface Props {
 
 const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent }: Props) => {
 
+    const [itemToEdit, setItemToEdit] = useState<any>({});
+    const [open, setOpen] = useState<boolean>(false);
 
     const addPages = (index: any, item: any) => {
         const newTodos = [...fileDetails];
@@ -27,9 +29,31 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
         setFileDetails(newTodos)
     }
 
-    const addSection = (parentId: number, index: number) => {
+    const addSection = (parentId: number, index: number, displayDirection: string) => {
+        console.log(displayDirection)
         const newTodos = [...fileDetails];
-        newTodos[parentId].sections.push({ sectionId: index + 1, items: [] })
+        newTodos[parentId].sections.push({ sectionId: index + 1, displayDirection: displayDirection, items: [] })
+        setFileDetails(newTodos)
+        setOpen(false)
+    }
+
+    const handleUpdate = (passedItem: any) => {
+        console.log(passedItem)
+        const editableItem = { ...itemToEdit }
+        const newTodos = [...fileDetails];
+        newTodos.find((page: any) => {
+            if (page.pageId === editableItem.page) {
+                page.sections.find((section: any) => {
+                    if (section.sectionId === editableItem.section) {
+                        section.items.find((item: any) => {
+                            if (item.itemId === editableItem.itemId) {
+                                newTodos[editableItem.page - 1].sections[editableItem.section - 1].items[editableItem.item] = passedItem
+                            }
+                        })
+                    }
+                })
+            }
+        })
         setFileDetails(newTodos)
     }
 
@@ -48,13 +72,21 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
                         <span style={{ color: 'rgb(180 180 180)', fontSize: '22px' }} onClick={() => addPages(fileDetails.length, fileDetails.length + 1)}>+</span>
                     </PagesWrapper>
                     <SectionsWrapper>
-                        {fileDetails.map((page: any, index: any) => <>
-                            {page.sections.map((s: any, index: number) => <>
-                                <DropableContainer pageName={page.pageId} name={s.sectionId} >
-                                    {s.items.map((item: ISectionItem) => <RenderItems type={item.type} />)}
+                        {fileDetails.map((page: any) => <>
+                            {page.sections.map((s: any) => <>
+                                <DropableContainer displayDirection={s.displayDirection} pageName={page.pageId} name={s.sectionId} >
+                                    {s.items.map((item: ISectionItem, index: number) => <div key={index} onClick={() => {
+                                        setItemToEdit({ item: index, section: s.sectionId, page: page.pageId, itemId: item.itemId })
+                                    }}>
+                                        <RenderItems handleUpdate={handleUpdate} item={item} type={item.type} />
+                                    </div>)}
                                 </DropableContainer>
                             </>)}
-                            <span style={{ color: '#c1c1c1', fontSize: '22px' }} onClick={() => addSection(page.pageId - 1, page.sections.length)}>+</span>
+                            <span style={{ color: '#c1c1c1', fontSize: '22px' }} onClick={() => setOpen(true)}>+</span>
+                            {open === true && <div style={{ outline: '1px solid lightGrey', width: 'fit-content', padding: '5px 0px', borderRadius: '5px' }}>
+                                <TableRowsRoundedIcon onClick={() => addSection(page.pageId - 1, page.sections.length, 'row')} />
+                                <ViewColumnRoundedIcon onClick={() => addSection(page.pageId - 1, page.sections.length, 'column')} />
+                            </div>}
                         </>)}
                     </SectionsWrapper>
                     <StyledWidgets>

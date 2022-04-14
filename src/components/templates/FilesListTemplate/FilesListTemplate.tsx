@@ -27,5 +27,5 @@ const FileTemplateWraper = styled.div`
   padding: 20px 50px;
   background-color: #FCFBFB;
   box-shadow:  inset 0 0 10px #d9d9d9;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 60px);
 `

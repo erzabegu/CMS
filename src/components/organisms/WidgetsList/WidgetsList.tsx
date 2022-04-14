@@ -21,7 +21,7 @@ const WidgetList = ({ fileDetails, handleDroppableEvent, children, tipi }: DropR
             const dropResult = monitor.getDropResult<DropResult>()
             if (item && dropResult) {
                 handleDroppableEvent({ ...dropResult, tipi: tipi })
-                alert(`You dropped ${item.name} into section: ${dropResult.name} page: ${dropResult.pageName} type: ${tipi}! `)
+                // alert(`You dropped ${item.name} into section: ${dropResult.name} page: ${dropResult.pageName} type: ${tipi}! `)
             }
         },
         collect: (monitor) => ({

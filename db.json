@@ -2,7 +2,7 @@
   "files": [
     {
       "id": 1,
-      "fileName": "Edit File Name"
+      "fileName": "New file edited"
     },
     {
       "id": 2,
@@ -35,6 +35,10 @@
     {
       "id": 9,
       "fileName": "File9"
+    },
+    {
+      "id": 10,
+      "fileName": "Rina Lutolli"
     }
   ],
   "fileDetails": [

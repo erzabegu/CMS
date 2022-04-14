@@ -6,9 +6,13 @@ interface DropResult {
     name: string;
     children?: any;
     pageName: any;
+    displayDirection: string;
+}
+interface StyledSection {
+    displayDirection: string;
 }
 
-const DropableContainer = ({ name, children, pageName }: DropResult) => {
+const DropableContainer = ({ name, children, pageName, displayDirection }: DropResult) => {
     const [{ canDrop, isOver }, drop] = useDrop(() => ({
         accept: 'box',
         drop: () => ({ name: name, pageName: pageName }),
@@ -25,16 +29,17 @@ const DropableContainer = ({ name, children, pageName }: DropResult) => {
     } else if (canDrop) {
         backgroundColor = '#d9d9d9'
     }
-    return <StyledDroppableContainer ref={drop} role={'1'} style={{ backgroundColor: backgroundColor }}>{children}</StyledDroppableContainer>
+    return <StyledDroppableContainer ref={drop} role={'1'} displayDirection={displayDirection} style={{ backgroundColor: backgroundColor }} >{children}</StyledDroppableContainer>
 }
 
 export default DropableContainer
 
-const StyledDroppableContainer = styled.div`
+const StyledDroppableContainer = styled.div<StyledSection>` 
     display: flex;
-    flex-direction: column;
+    flex-direction: ${(props) => props.displayDirection};
     align-items: center;
     border-radius: 5px;
     margin: 5px;
-    min-height: 50px;
-`
+    padding: 10px 0px;
+    min-height: 70px;
+`   

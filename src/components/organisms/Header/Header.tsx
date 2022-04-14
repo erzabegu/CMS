@@ -1,6 +1,6 @@
 import { StyledHeader } from './styled';
 import { Image, UserAvatar } from 'reader/atoms';
-import  AxiansImage  from '../../images/axians.png'
+import AxiansImage from '../../images/axians.png'
 
 const Header = () => {
     return <StyledHeader>

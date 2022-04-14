@@ -8,4 +8,6 @@ export interface IDefaultText {
     alignSelf?: string;
     padding?: string;
     backgroundColor?: string;
+    outline?: string;
+    fontStyle?: string;
 }

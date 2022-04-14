@@ -18,9 +18,11 @@ const PagesWrapper = styled.div`
 `
 const SectionsWrapper = styled.div`
     flex-grow: 10;
+    max-width: 900px;
     padding: 20px;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 `
 const StyledWidgets = styled.div`
     flex-grow: 1;

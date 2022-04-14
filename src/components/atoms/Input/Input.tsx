@@ -1,7 +1,4 @@
 import React from 'react'
-import { IDefaultText } from 'src/types/IDefaultText';
-import styled from 'styled-components';
-import { theme } from 'reader/styles'
 import { StyledInput } from './styled';
 
 interface Props {
@@ -21,11 +18,14 @@ interface Props {
     margin?: string;
     padding?: string;
     ref?: any;
+    outline?: any;
+    fontStyle?: any;
+
 }
 
 
 
-const Input = ({ type, defaultValue, onChange, onBlur, onClick, onFocus, autoFoucus, style, fontSize, fontWeight, color, lineHeight, textAlign, margin, padding, ref }: Props) => {
+const Input = ({ type, defaultValue, onChange, onBlur, onClick, onFocus, autoFoucus, outline, style, fontStyle, fontSize, fontWeight, color, lineHeight, textAlign, margin, padding, ref }: Props) => {
     return <>
         <StyledInput
             spellCheck={false}
@@ -45,6 +45,8 @@ const Input = ({ type, defaultValue, onChange, onBlur, onClick, onFocus, autoFou
             margin={margin}
             padding={padding}
             ref={ref}
+            outline={outline}
+            fontStyle={fontStyle}
         />
     </>
 }
