@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Image } from 'reader/atoms'
 
 const RenderImage = () => {
-    return <div style={{padding: '5px'}}>
-        <Image src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz_bjuo31elkGbmweJkXnaTPTBIpydFwZAE7wRAPp7uhx8e64K81eDWjCu2GaTVfx_5w&usqp=CAU`} />
+
+    const [source, setSource] = useState<any>({});
+
+    const imageHandler = (e: any) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            if (reader.readyState === 2) {
+                setSource({ profileImg: reader.result })
+            }
+        }
+        reader.readAsDataURL(e.target.files[0])
+    };
+
+    return <div style={{ padding: '5px' }}>
+        {!source.profileImg && <input type="file" accept="image/png, image/jpeg" onChange={imageHandler} />}
+        {source.profileImg && <Image src={source.profileImg} height={120} maxWidth={120} />}
     </div>
 }
 

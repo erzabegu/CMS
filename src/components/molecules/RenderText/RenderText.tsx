@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Input } from 'reader/atoms'
 import styled from 'styled-components';
 import FormatBoldRoundedIcon from '@mui/icons-material/FormatBoldRounded';
 import FormatItalicRoundedIcon from '@mui/icons-material/FormatItalicRounded';
 import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
-
-
 
 interface Props {
     item: any;
@@ -27,6 +25,7 @@ const RenderText = ({ item, handleUpdate }: Props) => {
             fontStyle={item.fontStyle}
         />
         {edit && <StyledEdit>
+            <span onClick={() => setEdit(false)}>X</span>
             <FormatBoldRoundedIcon
                 style={{ backgroundColor: !fontWeight && 'lightgrey' }}
                 onClick={() => {

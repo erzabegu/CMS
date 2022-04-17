@@ -22,9 +22,14 @@ const FileDetails = () => {
     //     })
     // }
 
+    const _addPages = (index: number, item: any) => {
+        const newTodos = [...fileDetails];
+        newTodos.push({ pageId: item, pageName: 'new page', sections: [{ sectionId: 1, items: [] }] })
+        setFileDetails(newTodos)
+    }
+
     const _handleDroppableEvent = (dropResult: any) => {
         setFileDetails((currentFileDetails: any) => {
-            // console.log('setFileDetails', currentFileDetails)
             currentFileDetails.find((page: any) => {
                 if (page.pageId === dropResult.pageName) {
                     page.sections.find((section: any) => {
@@ -39,11 +44,14 @@ const FileDetails = () => {
     }
 
 
-    return (
-        <>
-            <FileDetailsTemplate handleDroppableEvent={_handleDroppableEvent} fileDetails={fileDetails} setFileDetails={setFileDetails} widgetsList={widgetsList} />
-        </>
-    )
+    return <FileDetailsTemplate
+        handleDroppableEvent={_handleDroppableEvent}
+        fileDetails={fileDetails}
+        setFileDetails={setFileDetails}
+        widgetsList={widgetsList}
+        addPages={_addPages}
+    />
+
 }
 
 export default FileDetails;

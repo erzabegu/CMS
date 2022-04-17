@@ -5,5 +5,9 @@ import { IFontWeight } from "./IFontWeight";
 export interface ITheme {
     colors: IColor,
     fontSize: IFontSize,
-    fontWeight: IFontWeight
+    fontWeight: IFontWeight,
+    imageSize: {
+        height: number,
+        width: number,
+    }
 }

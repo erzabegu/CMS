@@ -25,5 +25,9 @@ export const theme: ITheme = {
         regular: 400,
         semiBold: 700,
         bold: 900,
+    },
+    imageSize: {
+        height: 50,
+        width: 100,
     }
 }

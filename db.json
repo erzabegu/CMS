@@ -39,6 +39,10 @@
     {
       "id": 10,
       "fileName": "Rina Lutolli"
+    },
+    {
+      "id": 11,
+      "fileName": "Document"
     }
   ],
   "fileDetails": [
@@ -56,15 +60,18 @@
   "widgetsList": [
     {
       "iconName": "TextFieldsIcon",
-      "type": "text"
+      "type": "text",
+      "src": "Text"
     },
     {
       "iconName": "ImageIcon",
-      "type": "image"
+      "type": "image",
+      "src": "Image"
     },
     {
       "iconName": "DonutLargeSharpIcon",
-      "type": "chart"
+      "type": "chart",
+      "src": "Chart"
     }
   ]
 }

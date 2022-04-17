@@ -20,6 +20,7 @@ interface Props {
     ref?: any;
     outline?: any;
     fontStyle?: any;
+    accept?: string;
 }
 
 

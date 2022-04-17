@@ -1,0 +1,1 @@
+export { default as PagesWrapper } from './PagesWrapper'

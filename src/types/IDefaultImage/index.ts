@@ -1,0 +1,1 @@
+export type { IDefaultImage } from './IDefaultImage'

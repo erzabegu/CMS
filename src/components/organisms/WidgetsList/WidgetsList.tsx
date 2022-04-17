@@ -1,9 +1,12 @@
-import { useDrag } from 'react-dnd';
+import { DragPreviewImage, useDrag } from 'react-dnd';
 import styled from 'styled-components';
 
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import ImageIcon from '@mui/icons-material/Image';
 import DonutLargeSharpIcon from '@mui/icons-material/DonutLargeSharp';
+import Text from '../../images/Text.png'
+import PlaceholderImage from '../../images/placeholderImage.png'
+import ChartPlaceholder from '../../images/ChartPlaceholder.png'
 
 interface DropResult {
     name?: string;
@@ -13,6 +16,7 @@ interface DropResult {
     handleDroppableEvent?(dropResult: DropResult): void;
     children: any;
     tipi?: any;
+    src?: string;
 }
 
 
@@ -27,9 +31,20 @@ const RenderIcons = (iconName: string) => {
     }
 }
 
-const WidgetList = ({ fileDetails, handleDroppableEvent, children, tipi }: DropResult) => {
+const RenderSrc = (src: string) => {
+    switch (src) {
+        case 'Text':
+            return Text
+        case 'Image':
+            return PlaceholderImage
+        case 'Chart':
+            return ChartPlaceholder
+    }
+}
 
-    const [{ isDragging }, drag] = useDrag(() => ({
+const WidgetList = ({ fileDetails, handleDroppableEvent, children, tipi, src }: DropResult) => {
+
+    const [{ isDragging }, drag, preview] = useDrag(() => ({
         type: 'box',
         item: { name: 'itemi' },
         end: (item, monitor) => {
@@ -46,6 +61,7 @@ const WidgetList = ({ fileDetails, handleDroppableEvent, children, tipi }: DropR
     }))
 
     return <StyledWrapper ref={drag}>
+        <DragPreviewImage connect={preview} src={RenderSrc(src)} />
         {RenderIcons(children)}
     </StyledWrapper>
 }

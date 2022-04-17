@@ -1,5 +1,6 @@
 export { FilesListOrganism } from './FilesList'
 export { WidgetList } from './WidgetsList'
-export { DropableContainer } from './DropableContainer'
+export { DropZone } from './DropZone'
 export { RenderItems } from './RenderItems'
 export { Header } from './Header'
+export { PagesWrapper } from './PagesWrapper'

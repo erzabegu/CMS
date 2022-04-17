@@ -4,7 +4,7 @@ import AxiansImage from '../../images/axians.png'
 
 const Header = () => {
     return <StyledHeader>
-        <Image src={AxiansImage} />
+        <Image src={AxiansImage} height={50} maxWidth={100} />
         <UserAvatar name={'Ereza'}></UserAvatar>
     </StyledHeader>
 }
