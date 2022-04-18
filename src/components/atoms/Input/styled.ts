@@ -6,8 +6,9 @@ const StyledInput = styled.input<IDefaultText>`
     border: none;
     padding: 5px 10px;
     text-align: center;
+    display: inline-block;
     transition: 1s all;
-    width: 70%;
+    width:  ${({ width }) => width ? width : '70%'};
     margin: 0px auto;
     background-color: ${({ backgroundColor, theme }) => !!backgroundColor ? `${backgroundColor}` : `${theme.colors.primary.lightGrey}`};
     font-size: ${({ fontSize, theme }) => !!fontSize ? `${fontSize}px` : `${theme.fontSize.sm}px`};

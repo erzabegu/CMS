@@ -6,7 +6,7 @@ import ImageIcon from '@mui/icons-material/Image';
 import DonutLargeSharpIcon from '@mui/icons-material/DonutLargeSharp';
 import Text from '../../images/Text.png'
 import PlaceholderImage from '../../images/placeholderImage.png'
-import ChartPlaceholder from '../../images/ChartPlaceholder.png'
+import ChartPlaceholder from '../../images/nn.png'
 
 interface DropResult {
     name?: string;

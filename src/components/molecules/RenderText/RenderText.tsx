@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import { Input } from 'reader/atoms'
+import { Input, TextArea } from 'reader/atoms'
 import styled from 'styled-components';
 import FormatBoldRoundedIcon from '@mui/icons-material/FormatBoldRounded';
 import FormatItalicRoundedIcon from '@mui/icons-material/FormatItalicRounded';
 import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
+import { AddCustomPicker } from '../AddCustomPicker';
+import ColorizeIcon from '@mui/icons-material/Colorize';
 
 interface Props {
     item: any;
@@ -13,19 +15,31 @@ const RenderText = ({ item, handleUpdate }: Props) => {
     const [edit, setEdit] = useState<boolean>(false);
     const [fontStyle, setFontStyle] = useState<boolean>(true)
     const [fontWeight, setFontWeight] = useState<boolean>(true)
+    const [openColorPicker, setOpenColorPicker] = useState<boolean>(false)
+    const [openPicker, setOpenPicker] = useState<boolean>(false)
+    const [itemColor, setItemColor] = useState<string>("");
+    const [itemBackground, setItemBackground] = useState<string>("");
 
     return <div style={{ padding: '5px', position: "relative" }}>
-        <Input
-            type={"text"}
+        <TextArea
+            onClick={() => setEdit(!edit)}
             defaultValue={item.itemName}
-            onClick={() => setEdit(true)}
-            padding={'10px'}
-            color={item.color}
-            fontWeight={item.fontWeight}
-            fontStyle={item.fontStyle}
+            placeholder={item.placeholder}
+            style={{
+                width: 200,
+                maxWidth: '800px',
+                fontSize: item.fontSize,
+                fontWeight: item.fontWeight,
+                fontStyle: item.fontStyle,
+                color: item.color,
+                outline: 'none',
+                border: 'none',
+                borderRadius: '7px',
+                padding: '10px',
+                backgroundColor: item.backgroundColor
+            }}
         />
         {edit && <StyledEdit>
-            <span onClick={() => setEdit(false)}>X</span>
             <FormatBoldRoundedIcon
                 style={{ backgroundColor: !fontWeight && 'lightgrey' }}
                 onClick={() => {
@@ -34,12 +48,30 @@ const RenderText = ({ item, handleUpdate }: Props) => {
                 }}
 
             />
-            <FormatItalicRoundedIcon onClick={() => {
-                setFontStyle(!fontStyle)
-                handleUpdate({ ...item, fontStyle: fontStyle ? 'italic' : 'normal' })
-            }}
+            <FormatItalicRoundedIcon
+                style={{ backgroundColor: !fontStyle && 'lightgrey' }}
+                onClick={() => {
+                    setFontStyle(!fontStyle)
+                    handleUpdate({ ...item, fontStyle: fontStyle ? 'italic' : 'normal' })
+                }}
             />
-            <FormatColorFillIcon />
+            <FormatColorFillIcon onClick={() => {
+                setOpenColorPicker(!openColorPicker)
+                setOpenPicker(false)
+            }} />
+            <AddCustomPicker openPicker={openColorPicker} color={item.color} width={'100px'} height={'12px'} onChangeComplete={(color) => {
+                setItemColor(color.hex)
+                handleUpdate({ ...item, color: itemColor ? itemColor : 'black' })
+            }} />
+            <ColorizeIcon onClick={() => {
+                setOpenPicker(!openPicker)
+                setOpenColorPicker(false)
+            }} />
+            <AddCustomPicker openPicker={openPicker} color={item.color} width={'100px'} height={'12px'} onChangeComplete={(color) => {
+                setItemBackground(color.hex)
+                handleUpdate({ ...item, backgroundColor: itemBackground ? itemBackground : 'white' })
+            }} />
+
         </StyledEdit>
         }
     </div>
@@ -49,9 +81,11 @@ export default RenderText
 
 
 const StyledEdit = styled.div`
+    display: flex;
     position: absolute;
-    top: -20px;
+    top: -27px;
     left: 10px;
     outline: 1px solid lightgrey;
     outline-radius: 3px;
+    padding: 2px 2px;
 `

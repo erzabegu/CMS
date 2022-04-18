@@ -46,6 +46,9 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
         setFileDetails(newTodos)
     }
 
+    useEffect(() => {
+        console.log(fileDetails)
+    }, [fileDetails])
 
     return <DndProvider backend={HTML5Backend}>
         <Header />
@@ -54,7 +57,7 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
             <SectionsWrapper>
                 {fileDetails.map((page: any) => <>
                     {page.sections.map((s: any) => <>
-                        <DropZone handleNewFeatures={_handleNewFeatures} displayDirection={s.displayDirection} alignItems={s.alignItems} pageName={page.pageId} name={s.sectionId} >
+                        <DropZone handleNewFeatures={_handleNewFeatures} displayDirection={s.displayDirection} alignItems={s.alignItems} background={s.background} pageName={page.pageId} name={s.sectionId} >
                             {s.items.map((item: ISectionItem, index: number) => <div key={index} onClick={() => {
                                 setItemToEdit({ item: index, section: s.sectionId, page: page.pageId, itemId: item.itemId })
                             }}>
@@ -62,17 +65,19 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
                             </div>)}
                         </DropZone>
                     </>)}
-                    <Button onClick={() => setOpen(true)} value={'+'} color={'#c1c1c1'}></Button>
+                    <Button onClick={() => setOpen(!open)} value={'+'} color={'#c1c1c1'}></Button>
                     <AddSectionDialog open={open} addSection={addSection} parentId={page.pageId - 1} index={page.sections.length}></AddSectionDialog>
                 </>)}
             </SectionsWrapper>
             <StyledWidgets>
-                {widgetsList.map((widget) => <WidgetList
-                    fileDetails={fileDetails}
-                    handleDroppableEvent={handleDroppableEvent}
-                    children={widget.iconName}
-                    tipi={widget.type}
-                    src={widget.src} />)}
+                <div style={{ position: 'sticky', top: '0px', height: '100px' }}>
+                    {widgetsList.map((widget) => <WidgetList
+                        fileDetails={fileDetails}
+                        handleDroppableEvent={handleDroppableEvent}
+                        children={widget.iconName}
+                        tipi={widget.type}
+                        src={widget.src} />)}
+                </div>
             </StyledWidgets>
         </FileDetailsWrapper>
     </DndProvider>

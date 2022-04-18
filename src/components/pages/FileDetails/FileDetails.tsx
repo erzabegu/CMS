@@ -24,7 +24,7 @@ const FileDetails = () => {
 
     const _addPages = (index: number, item: any) => {
         const newTodos = [...fileDetails];
-        newTodos.push({ pageId: item, pageName: 'new page', sections: [{ sectionId: 1, items: [] }] })
+        newTodos.push({ pageId: item, pageName: 'new page', sections: [{ sectionId: 1, displayDirection: 'row', items: [] }] })
         setFileDetails(newTodos)
     }
 

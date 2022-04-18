@@ -10,4 +10,5 @@ export interface IDefaultText {
     backgroundColor?: string;
     outline?: string;
     fontStyle?: string;
+    width?: string;
 }

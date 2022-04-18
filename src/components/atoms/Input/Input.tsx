@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components';
 import { StyledInput } from './styled';
 
 interface Props {
@@ -21,6 +22,8 @@ interface Props {
     outline?: any;
     fontStyle?: any;
     accept?: string;
+    width?: string;
+    contenteditable?: boolean;
 }
 
 
@@ -32,3 +35,4 @@ const Input = (props: Props) => {
 }
 
 export default Input
+

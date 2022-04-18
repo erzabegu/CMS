@@ -10,39 +10,7 @@
     },
     {
       "id": 3,
-      "fileName": "Template Details"
-    },
-    {
-      "id": 4,
-      "fileName": "File4"
-    },
-    {
-      "id": 5,
-      "fileName": "File5"
-    },
-    {
-      "id": 6,
-      "fileName": "File6"
-    },
-    {
-      "id": 7,
-      "fileName": "File7"
-    },
-    {
-      "id": 8,
-      "fileName": "File8"
-    },
-    {
-      "id": 9,
-      "fileName": "File9"
-    },
-    {
-      "id": 10,
-      "fileName": "Rina Lutolli"
-    },
-    {
-      "id": 11,
-      "fileName": "Document"
+      "fileName": "hey"
     }
   ],
   "fileDetails": [
@@ -52,6 +20,7 @@
       "sections": [
         {
           "sectionId": 1,
+          "displayDirection": "row",
           "items": []
         }
       ]

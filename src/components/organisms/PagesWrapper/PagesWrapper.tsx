@@ -10,13 +10,15 @@ interface Props {
 const PagesWrapper = ({ fileDetails, addPages }: Props) => {
     return <>
         <Pageswrapper>
-            {fileDetails.map((page: any, index: any) => <div key={index} style={{ padding: '10px 0px', }}>
-                <Input
-                    type='text'
-                    defaultValue={page.pageName}
-                />
-            </div>)}
-            <Button onClick={() => addPages(fileDetails.length, fileDetails.length + 1)} value={'+'} />
+            <div style={{ height: "100px", position: 'sticky', top: '0px' }}>
+                {fileDetails.map((page: any, index: any) => <div key={index} style={{ padding: '10px 0px', }}>
+                    <Input
+                        type='text'
+                        defaultValue={page.pageName}
+                    />
+                </div>)}
+                <Button onClick={() => addPages(fileDetails.length, fileDetails.length + 1)} value={'+'} />
+            </div>
         </Pageswrapper>
     </>
 }
