@@ -22,6 +22,29 @@ interface Props {
 
 const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent, widgetsList, addPages }: Props) => {
 
+    const data = {
+        labels: ['Red', 'Blue', 'Yellow', 'Green'],
+        datasets: [
+            {
+                label: '# of Votes',
+                data: [12, 19, 3, 5],
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 206, 86)',
+                    'rgb(75, 192, 192)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderWidth: 1,
+            },
+        ],
+    };
+
     const [itemToEdit, setItemToEdit] = useState<any>({});
     const [open, setOpen] = useState<boolean>(false);
 
@@ -61,7 +84,7 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
                             {s.items.map((item: ISectionItem, index: number) => <div key={index} onClick={() => {
                                 setItemToEdit({ item: index, section: s.sectionId, page: page.pageId, itemId: item.itemId })
                             }}>
-                                <RenderItems handleUpdate={handleUpdate} item={item} type={item.type} />
+                                <RenderItems chartData={data} handleUpdate={handleUpdate} item={item} type={item.type} />
                             </div>)}
                         </DropZone>
                     </>)}

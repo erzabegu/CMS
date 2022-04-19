@@ -4,9 +4,9 @@ import styled from 'styled-components';
 
 interface Props {
     open: boolean;
-    addSection?(parentId: any, index: any, direction: any): void;
     parentId: any;
     index: any;
+    addSection?(parentId: any, index: any, direction: any): void;
 }
 
 const AddSectionDialog = (props: Props) => {

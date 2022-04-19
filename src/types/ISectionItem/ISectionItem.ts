@@ -3,4 +3,10 @@ export interface ISectionItem {
     itemName: string;
     type: string;
     color?: string;
+    src?: string;
+    height?: number;
+    width?: number;
+    fontStyle?: string;
+    fontWeight?: string;
+    backgroundColor?: string;
 }

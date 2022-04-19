@@ -9,6 +9,7 @@ interface Props {
     onBlur?(): void;
     onClick?(): void;
     onFocus?(): void;
+    onChange?(): void;
 }
 
 const TextArea = (props: Props) => {

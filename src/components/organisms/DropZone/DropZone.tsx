@@ -84,9 +84,6 @@ const DropZone = ({ name, children, pageName, displayDirection, handleNewFeature
                     <AlignVerticalBottom onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-end' })} />
                 </>
                 }
-                {/* <FormatAlignLeftIcon onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-end' })} />
-                <FormatAlignJustifyIcon onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'center' })} />
-                <FormatAlignRightIcon onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-start' })} /> */}
                 <FormatColorFillIcon onClick={() => setOpenColorPicker(!openColorPicker)} />
                 <AddCustomPicker openPicker={openColorPicker} color={pickerColor} width={'220px'} onChangeComplete={(color) => {
                     setPickerColor(color.hex)
@@ -114,8 +111,6 @@ const StyledDroppableContainer = styled.div<StyledSection>`
 `
 const Styled = styled.span` 
     position: absolute;
-    // bottom: -12px;
     top:-10px;
     right: -3px;
-    // right: -4px;
 `   

@@ -1,5 +1,6 @@
 import React from 'react'
 import { CustomColorPicker } from 'reader/atoms';
+import styled from 'styled-components';
 
 interface Props {
     openPicker: boolean;
@@ -9,9 +10,13 @@ interface Props {
 }
 
 const AddCustomPicker = ({ openPicker, width, color, onChangeComplete }: Props) => {
-    return (openPicker && <div style={{ padding: '0px 10px' }}>
+    return (openPicker && <PickerWrapper>
         <CustomColorPicker width={width} color={color} onChangeComplete={onChangeComplete} />
-    </div>)
+    </PickerWrapper>)
 }
 
 export default AddCustomPicker
+
+const PickerWrapper = styled.div`
+    padding: '0px 10px'
+`

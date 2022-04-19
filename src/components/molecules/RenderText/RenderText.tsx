@@ -83,9 +83,5 @@ export default RenderText
 const StyledEdit = styled.div`
     display: flex;
     position: absolute;
-    // top: -27px;
-    // left: 10px;
-    // outline: 1px solid lightgrey;
-    // outline-radius: 3px;
     padding: 2px 2px;
 `

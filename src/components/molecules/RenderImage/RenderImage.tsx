@@ -1,41 +1,59 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Image, Input } from 'reader/atoms'
 import styled from 'styled-components';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 
-const RenderImage = () => {
+interface Props {
+    item: any;
+    handleUpdate?(passedItem: any): void;
+}
 
-    const [source, setSource] = useState<any>({});
+const RenderImage = ({ item, handleUpdate }: Props) => {
+
+    const hiddenFileInput = React.useRef(null);
+
     const [edit, setEdit] = useState<boolean>(false)
     const [height, setHeight] = useState<number>(100)
     const [width, setWidth] = useState<number>(100)
+    const [loading, setLoading] = useState<boolean>(false)
 
-    const hiddenFileInput = React.useRef(null);
-    
+
+    useEffect(() => {
+        console.log(item)
+    }, item)
+
     const handleClick = (e: any) => {
         hiddenFileInput.current.click();
     };
 
     const imageHandler = (e: any) => {
+        console.log('imageHandler')
         const reader = new FileReader();
         reader.onload = () => {
             if (reader.readyState === 2) {
-                setSource({ profileImg: reader.result })
+                handleUpdate({ ...item, src: reader.result })
             }
         }
         reader.readAsDataURL(e.target.files[0])
     };
 
     return <div style={{ padding: '5px' }}>
-        {!source.profileImg &&
+        {!item.src &&
             <><UploadFileIcon style={{ cursor: 'pointer' }} onClick={handleClick} />
                 <input ref={hiddenFileInput} style={{ display: 'none' }} type="file" accept="image/png, image/jpeg" onChange={imageHandler} />
             </>}
-        {source.profileImg && <Image src={source.profileImg} height={height} width={width} onClick={() => setEdit(!edit)} />}
+        {item.src && <Image src={item.src} height={item.height ? item.height : height} width={item.width ? item.width : width} onClick={() => setEdit(!edit)} />}
         {
             edit && <StyledEditBox>
-                <Input type="number" max={500} min={10} value={height} onChange={(e) => setHeight(Number(e.target.value))} />
-                <Input type="number" max={500} min={10} value={width} onChange={(e) => setWidth(Number(e.target.value))} />
+                <Input type="number" max={500} min={10} value={height} onChange={(e) => {
+                    setHeight(Number(e.target.value))
+                    setLoading(true)
+                    loading && handleUpdate({ ...item, height: height })
+                }} />
+                <Input type="number" max={500} min={10} value={width} onChange={(e) => {
+                    setWidth(Number(e.target.value))
+                    handleUpdate({ ...item, width: width })
+                }} />
             </StyledEditBox>
         }
     </div>
