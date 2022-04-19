@@ -1,23 +1,19 @@
-import React from 'react'
-import { HuePicker } from 'react-color'
-
+import Github from 'react-color/lib/components/github/Github';
 
 interface Props {
     color: string;
+    width?: string;
+    colorsPalette?: Array<string>
     onChangeComplete(color: any): void;
-    width: string;
-    height: string;
 }
 
-const CustomColorPicker = ({ color, onChangeComplete, width, height }: Props) => {
-    return <>
-        <HuePicker
-            width={width}
-            height={height}
-            color={color}
-            onChangeComplete={onChangeComplete}
-        />
-    </>
+const CustomColorPicker = ({ color, onChangeComplete, width, colorsPalette }: Props) => {
+    return <Github
+        width={width}
+        color={color}
+        colors={colorsPalette}
+        onSwatchHover={onChangeComplete}
+    />
 }
 
 export default CustomColorPicker

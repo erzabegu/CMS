@@ -1,24 +1,17 @@
 import React from 'react'
-import { IDefaultImage } from 'reader/types';
-import styled from 'styled-components'
+import { StyledImage } from './styled';
 
 interface Props {
     src: string;
     height?: number;
-    maxWidth?: number;
-    onClick?(): void;
+    width?: number;
     style?: any;
+    onClick?(): void;
 }
 
-const Image = ({ src, height, maxWidth, onClick, style }: Props) => {
-    return <StyledImage style={style} src={src} height={height} maxWidth={maxWidth} onClick={onClick} />
+const Image = ({ src, height, width, onClick, style }: Props) => {
+    return <StyledImage style={style} src={src} height={height} width={width} onClick={onClick} />
 }
+
 
 export default Image
-
-const StyledImage = styled.img<IDefaultImage>`
-    width:  ${({ maxWidth, theme }) => !!maxWidth ? `${maxWidth}px` : `${theme.imageSize.width}px`};
-    height:  ${({ height, theme }) => !!height ? `${height}px` : `${theme.imageSize.height}px`};
-    // object-fit: contain;
-    position: relative;
-`

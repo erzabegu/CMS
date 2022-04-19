@@ -1,21 +1,18 @@
-import React from "react";
 import { IDefaultText } from "src/types/IDefaultText";
 import styled from "styled-components";
+import { StyledButton } from "./styled";
 
 interface Props {
-    value: any;
-    onClick?(): void;
+    value?: string | number;
     color?: string;
+    fontSize?: string;
+    onClick?(): void;
 }
-const Button = ({ value, onClick, color }: Props) => {
-    return <StyledSpan onClick={onClick} color={color}>
+
+const Button = ({ value, onClick, color, fontSize }: Props) => {
+    return <StyledButton onClick={onClick} color={color} fontSize={fontSize}>
         {value}
-    </StyledSpan>
+    </StyledButton>
 }
 
 export default Button;
-
-const StyledSpan = styled.div<IDefaultText>`
-    color: ${({ theme, color }) => color || theme.colors.primary.black};
-    fontSize: 30px,
-`

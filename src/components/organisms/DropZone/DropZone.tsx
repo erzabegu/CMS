@@ -5,15 +5,12 @@ import ViewColumnRoundedIcon from '@mui/icons-material/ViewColumnRounded';
 import TableRowsRoundedIcon from '@mui/icons-material/TableRowsRounded';
 import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
 import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight';
-import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
 import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
 import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter';
 import AlignVerticalTopIcon from '@mui/icons-material/AlignVerticalTop';
 
 import { EditIcon } from '@chakra-ui/icons'
-import { CustomColorPicker } from "reader/atoms";
 import { AddCustomPicker } from "reader/molecules";
-import { blueGrey100 } from "material-ui/styles/colors";
 import { AlignVerticalBottom, VerticalAlignCenter } from "@mui/icons-material";
 
 interface DropResult {
@@ -91,7 +88,7 @@ const DropZone = ({ name, children, pageName, displayDirection, handleNewFeature
                 <FormatAlignJustifyIcon onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'center' })} />
                 <FormatAlignRightIcon onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-start' })} /> */}
                 <FormatColorFillIcon onClick={() => setOpenColorPicker(!openColorPicker)} />
-                <AddCustomPicker openPicker={openColorPicker} color={pickerColor} width={'220px'} height={'12px'} onChangeComplete={(color) => {
+                <AddCustomPicker openPicker={openColorPicker} color={pickerColor} width={'220px'} onChangeComplete={(color) => {
                     setPickerColor(color.hex)
                     handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { background: pickerColor })
                 }} />

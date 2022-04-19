@@ -27,16 +27,16 @@ const RenderText = ({ item, handleUpdate }: Props) => {
             placeholder={item.placeholder}
             style={{
                 width: 200,
-                maxWidth: '800px',
                 fontSize: item.fontSize,
                 fontWeight: item.fontWeight,
                 fontStyle: item.fontStyle,
                 color: item.color,
+                backgroundColor: item.backgroundColor,
+                maxWidth: '800px',
                 outline: 'none',
                 border: 'none',
                 borderRadius: '7px',
                 padding: '10px',
-                backgroundColor: item.backgroundColor
             }}
         />
         {edit && <StyledEdit>
@@ -59,15 +59,15 @@ const RenderText = ({ item, handleUpdate }: Props) => {
                 setOpenColorPicker(!openColorPicker)
                 setOpenPicker(false)
             }} />
-            <AddCustomPicker openPicker={openColorPicker} color={item.color} width={'100px'} height={'12px'} onChangeComplete={(color) => {
+            <AddCustomPicker openPicker={openColorPicker} color={item.color} width={'200px'} onChangeComplete={(color) => {
                 setItemColor(color.hex)
-                handleUpdate({ ...item, color: itemColor ? itemColor : 'black' })
+                itemColor && handleUpdate({ ...item, color: itemColor ? itemColor : 'black' })
             }} />
             <ColorizeIcon onClick={() => {
                 setOpenPicker(!openPicker)
                 setOpenColorPicker(false)
             }} />
-            <AddCustomPicker openPicker={openPicker} color={item.color} width={'100px'} height={'12px'} onChangeComplete={(color) => {
+            <AddCustomPicker openPicker={openPicker} color={item.color} width={'200px'} onChangeComplete={(color) => {
                 setItemBackground(color.hex)
                 handleUpdate({ ...item, backgroundColor: itemBackground ? itemBackground : 'white' })
             }} />
@@ -83,9 +83,9 @@ export default RenderText
 const StyledEdit = styled.div`
     display: flex;
     position: absolute;
-    top: -27px;
-    left: 10px;
-    outline: 1px solid lightgrey;
-    outline-radius: 3px;
+    // top: -27px;
+    // left: 10px;
+    // outline: 1px solid lightgrey;
+    // outline-radius: 3px;
     padding: 2px 2px;
 `
