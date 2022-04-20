@@ -6,6 +6,7 @@ interface Props {
     children?: string;
     defaultValue?: string;
     placeholder?: string;
+
     onBlur?(): void;
     onClick?(): void;
     onFocus?(): void;

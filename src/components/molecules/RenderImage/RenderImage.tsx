@@ -41,12 +41,12 @@ const RenderImage = ({ item, handleUpdate }: Props) => {
         {item.src && <Image src={item.src} height={item.height ? item.height : height} width={item.width ? item.width : width} onClick={() => setEdit(!edit)} />}
         {
             edit && <StyledEditBox>
-                <Input type="number" max={500} min={10} value={height} onChange={(e) => {
+                <Input type="number" max={500} min={10} width={'40px'} margin={'2px'} value={height} onChange={(e) => {
                     setHeight(Number(e.target.value))
                     setLoading(true)
                     loading && handleUpdate({ ...item, height: height })
                 }} />
-                <Input type="number" max={500} min={10} value={width} onChange={(e) => {
+                <Input type="number" max={500} min={10} width={'40px'} margin={'2px'} value={width} onChange={(e) => {
                     setWidth(Number(e.target.value))
                     handleUpdate({ ...item, width: width })
                 }} />

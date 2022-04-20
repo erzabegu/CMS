@@ -9,7 +9,7 @@ const StyledInput = styled.input<IDefaultText>`
     display: inline-block;
     transition: 1s all;
     width:  ${({ width }) => width ? width : '70%'};
-    margin: 0px auto;
+    margin:${({ margin }) => margin ? margin : '0px auto'} ;
     background-color: ${({ backgroundColor, theme }) => !!backgroundColor ? `${backgroundColor}` : `${theme.colors.primary.lightGrey}`};
     font-size: ${({ fontSize, theme }) => !!fontSize ? `${fontSize}px` : `${theme.fontSize.sm}px`};
     font-weight: ${({ fontWeight, theme }) => fontWeight || theme.fontWeight.regular};

@@ -1,12 +1,21 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDrop } from "react-dnd";
 import styled from "styled-components";
 
 import { EditIcon } from '@chakra-ui/icons'
 import { AddCustomPicker } from "reader/molecules";
-import { theme } from "reader/styles";
 import { Icon } from "reader/atoms";
-import { ViewColumnRoundedIcon, VerticalAlignCenter, AlignVerticalBottom, TableRowsRoundedIcon, FormatAlignLeftIcon, FormatAlignRightIcon, FormatColorFillIcon, FormatAlignCenterIcon, AlignVerticalTopIcon } from "src/components/assets/icons/icons";
+import {
+    ViewColumnRoundedIcon,
+    VerticalAlignCenter,
+    AlignVerticalBottom,
+    TableRowsRoundedIcon,
+    FormatAlignLeftIcon,
+    FormatAlignRightIcon,
+    FormatColorFillIcon,
+    FormatAlignCenterIcon,
+    AlignVerticalTopIcon
+} from "../../assets/icons/icons";
 
 interface DropResult {
     name: string;

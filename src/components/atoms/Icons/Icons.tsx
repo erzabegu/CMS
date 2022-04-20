@@ -1,4 +1,5 @@
 import React from 'react'
+import { StyledSpan } from './styled';
 
 interface Props {
     iconName: React.ReactNode;
@@ -8,7 +9,7 @@ interface Props {
 }
 
 const Icon = ({ iconName, color, onClick }: Props) => {
-    return <span style={{ color: color }} onClick={onClick}>{iconName}</span>
+    return <StyledSpan style={{ color: color }} onClick={onClick}>{iconName}</StyledSpan>
 }
 
 export default Icon;

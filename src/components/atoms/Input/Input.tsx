@@ -23,6 +23,7 @@ interface Props {
     max?: number;
     min?: number;
     value?: string | number;
+
     onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
     onBlur?(): void
     onClick?(): void
@@ -33,18 +34,8 @@ interface Props {
 
 const Input = (props: Props) => {
     return <>
-        {props.type === 'text' && <StyledInput type={props.type} defaultValue={props.defaultValue} {...props} onChange={props.onChange} />}
-        {props.type === 'number' && <StyledInputNumber type={props.type} value={props.value} max={props.max} min={props.min} onChange={props.onChange} />}
+        {(props.type === 'text' || props.type === 'number') && <StyledInput {...props} />}
     </>
 }
 
 export default Input
-
-const StyledInputNumber = styled.input`
-    background-color: #e6e6e6;
-    margin: 2px;
-    outline: none;
-    border: none;
-    width: 50px;
-    border-bottom: 1px solid lightgrey;
-`
