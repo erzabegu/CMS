@@ -18,5 +18,5 @@ const AddCustomPicker = ({ openPicker, width, color, onChangeComplete }: Props) 
 export default AddCustomPicker
 
 const PickerWrapper = styled.div`
-    padding: '0px 10px'
+    padding: 0px 10px;
 `

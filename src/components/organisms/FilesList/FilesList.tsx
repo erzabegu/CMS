@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { IFile } from 'reader/types'
 import FileOpenOutlinedIcon from '@mui/icons-material/FileOpenOutlined';
+import AddIcon from '@mui/icons-material/Add';
 import { addFile, editFile, getFiles } from 'reader/services';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useNavigate } from 'react-router-dom';
 import { InputWrapper } from 'reader/molecules';
-import AddIcon from '@mui/icons-material/Add';
 import { FilesWrapper, StyledBox, StyledPlus } from './styled';
 
 

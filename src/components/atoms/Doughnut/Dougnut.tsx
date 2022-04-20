@@ -8,7 +8,7 @@ interface Props {
 }
 
 const DoughnutChart = (props: Props) => {
-    return <Doughnut data={props.data} />
+    return <Doughnut data={props.data} />;
 }
 
 export default DoughnutChart

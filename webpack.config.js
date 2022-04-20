@@ -27,6 +27,8 @@ module.exports = {
             "reader/store": path.resolve(".", "src/store"),
             "reader/types": path.resolve(".", "src/types"),
             "reader/utils": path.resolve(".", "src/utils"),
+            "reader/icons": path.resolve(".", "src/assets/icons"),
+            "reader/images": path.resolve(".", "src/assets/images")
         },
     },
     module: {

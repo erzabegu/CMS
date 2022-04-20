@@ -13,10 +13,7 @@ interface Props {
 }
 
 const TextArea = (props: Props) => {
-    return <TextareaAutosize
-        style={props.style}
-        {...props}
-    />
+    return <TextareaAutosize {...props} />
 }
 
 export default TextArea

@@ -1,6 +1,5 @@
 import React from 'react'
 import Avatar from '@mui/material/Avatar';
-import { theme } from "reader/styles";
 
 interface Props {
     name: string;

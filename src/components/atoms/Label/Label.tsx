@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { StyledLabel } from './styled';
 
 interface Props {
@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Label = ({ labelName }: Props) => {
-    return <StyledLabel>{labelName}</StyledLabel>
+    return <StyledLabel>{labelName}</StyledLabel>;
 }
 
-export default Label
+export default Label;

@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDrop } from "react-dnd";
 import styled from "styled-components";
-import ViewColumnRoundedIcon from '@mui/icons-material/ViewColumnRounded';
-import TableRowsRoundedIcon from '@mui/icons-material/TableRowsRounded';
-import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
-import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight';
-import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
-import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter';
-import AlignVerticalTopIcon from '@mui/icons-material/AlignVerticalTop';
 
 import { EditIcon } from '@chakra-ui/icons'
 import { AddCustomPicker } from "reader/molecules";
-import { AlignVerticalBottom, VerticalAlignCenter } from "@mui/icons-material";
+import { theme } from "reader/styles";
+import { Icon } from "reader/atoms";
+import { ViewColumnRoundedIcon, VerticalAlignCenter, AlignVerticalBottom, TableRowsRoundedIcon, FormatAlignLeftIcon, FormatAlignRightIcon, FormatColorFillIcon, FormatAlignCenterIcon, AlignVerticalTopIcon } from "src/components/assets/icons/icons";
 
 interface DropResult {
     name: string;
@@ -70,21 +65,20 @@ const DropZone = ({ name, children, pageName, displayDirection, handleNewFeature
         </StyledDroppableContainer>
         {
             openSectionDialog === true && name === sectionToEdit.section && <div style={{ color: 'lightgrey', display: 'flex', alignItems: 'center' }}>
-                <ViewColumnRoundedIcon style={{ color: 'lightgrey' }} onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { displayDirection: 'column' })} />
-                <TableRowsRoundedIcon style={{ color: 'lightgrey' }} onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { displayDirection: 'row' })} />
+                <Icon iconName={<ViewColumnRoundedIcon />} onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { displayDirection: 'column' })} />
+                <Icon iconName={<TableRowsRoundedIcon />} onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { displayDirection: 'row' })} />
                 {displayDirection === 'column' && <>
-                    <FormatAlignLeftIcon onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-start' })} />
-                    <FormatAlignCenterIcon onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'center' })} />
-                    <FormatAlignRightIcon onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-end' })} />
-
+                    <Icon iconName={<FormatAlignLeftIcon />} onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-start' })} />
+                    <Icon iconName={<FormatAlignCenterIcon />} onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'center' })} />
+                    <Icon iconName={<FormatAlignRightIcon />} onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-end' })} />
                 </>}
                 {displayDirection === "row" && <>
-                    <AlignVerticalTopIcon onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-start' })} />
-                    <VerticalAlignCenter onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'center' })} />
-                    <AlignVerticalBottom onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-end' })} />
+                    <Icon iconName={<AlignVerticalTopIcon />} onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-start' })} />
+                    <Icon iconName={<VerticalAlignCenter />} onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'center' })} />
+                    <Icon iconName={<AlignVerticalBottom />} onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-end' })} />
                 </>
                 }
-                <FormatColorFillIcon onClick={() => setOpenColorPicker(!openColorPicker)} />
+                <Icon iconName={<FormatColorFillIcon />} onClick={() => setOpenColorPicker(!openColorPicker)} />
                 <AddCustomPicker openPicker={openColorPicker} color={pickerColor} width={'220px'} onChangeComplete={(color) => {
                     setPickerColor(color.hex)
                     handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { background: pickerColor })

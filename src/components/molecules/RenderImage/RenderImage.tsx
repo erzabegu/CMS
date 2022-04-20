@@ -18,10 +18,6 @@ const RenderImage = ({ item, handleUpdate }: Props) => {
     const [loading, setLoading] = useState<boolean>(false)
 
 
-    useEffect(() => {
-        console.log(item)
-    }, item)
-
     const handleClick = (e: any) => {
         hiddenFileInput.current.click();
     };

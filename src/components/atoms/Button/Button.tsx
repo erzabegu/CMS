@@ -1,5 +1,3 @@
-import { IDefaultText } from "src/types/IDefaultText";
-import styled from "styled-components";
 import { StyledButton } from "./styled";
 
 interface Props {

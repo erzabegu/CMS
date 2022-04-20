@@ -6,10 +6,6 @@ interface Props {
     labelName: string;
     type: string;
     defaultValue: string | number;
-    onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
-    onBlur?(): void
-    onClick?(): void
-    onFocus?(e: any): void;
     autoFoucus?: boolean;
     style?: any;
     fontSize?: string;
@@ -19,6 +15,11 @@ interface Props {
     textAlign?: string;
     margin?: string;
     padding?: string;
+
+    onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
+    onBlur?(): void
+    onClick?(): void
+    onFocus?(e: any): void;
 }
 
 const InputWrapper = (props: Props) => {

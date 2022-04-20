@@ -1,6 +1,6 @@
 import { StyledHeader } from './styled';
 import { Image, UserAvatar } from 'reader/atoms';
-import AxiansImage from '../../images/axians.png'
+import AxiansImage from '../../assets/images/axians.png';
 import { theme } from 'reader/styles';
 
 const Header = () => {
@@ -10,4 +10,4 @@ const Header = () => {
     </StyledHeader>
 }
 
-export default Header 
+export default Header  

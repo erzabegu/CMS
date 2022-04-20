@@ -3,7 +3,7 @@ import Github from 'react-color/lib/components/github/Github';
 interface Props {
     color: string;
     width?: string;
-    colorsPalette?: Array<string>
+    colorsPalette?: Array<string>;
     onChangeComplete(color: any): void;
 }
 
@@ -13,7 +13,7 @@ const CustomColorPicker = ({ color, onChangeComplete, width, colorsPalette }: Pr
         color={color}
         colors={colorsPalette}
         onSwatchHover={onChangeComplete}
-    />
+    />;
 }
 
 export default CustomColorPicker

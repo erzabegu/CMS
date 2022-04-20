@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { StyledImage } from './styled';
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Image = ({ src, height, width, onClick, style }: Props) => {
-    return <StyledImage style={style} src={src} height={height} width={width} onClick={onClick} />
+    return <StyledImage style={style} src={src} height={height} width={width} onClick={onClick} />;
 }
 
 

@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import FormatBoldRoundedIcon from '@mui/icons-material/FormatBoldRounded';
 import FormatItalicRoundedIcon from '@mui/icons-material/FormatItalicRounded';
 import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
-import { AddCustomPicker } from '../AddCustomPicker';
 import ColorizeIcon from '@mui/icons-material/Colorize';
+import { AddCustomPicker } from '../AddCustomPicker';
 
 interface Props {
     item: any;

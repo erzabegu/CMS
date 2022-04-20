@@ -4,19 +4,20 @@ import styled from 'styled-components';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import ImageIcon from '@mui/icons-material/Image';
 import DonutLargeSharpIcon from '@mui/icons-material/DonutLargeSharp';
-import Text from '../../images/Text.png'
-import PlaceholderImage from '../../images/placeholderImage.png'
-import ChartPlaceholder from '../../images/nn.png'
+import Text from '../../assets/images/text.png';
+import PlaceholderImage from '../../assets/images/PlaceholderImage.png';
+import ChartPlaceholder from '../../assets/images/nn.png';
 
 interface DropResult {
     name?: string;
     pageName?: string;
     fileDetails?: any;
     setFileDetails?: any;
-    handleDroppableEvent?(dropResult: DropResult): void;
     children: any;
     tipi?: any;
     src?: string;
+
+    handleDroppableEvent?(dropResult: DropResult): void;
 }
 
 
