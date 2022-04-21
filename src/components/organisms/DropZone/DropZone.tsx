@@ -4,11 +4,13 @@ import { useDrop } from "react-dnd";
 import { EditIcon } from '@chakra-ui/icons'
 import { EditSectionDialog } from "reader/molecules";
 import { Styled, StyledDroppableContainer } from "./styled";
+import SettingsIcon from '@mui/icons-material/Settings';
+import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 
 interface DropResult {
     name: string;
     children?: any;
-    pageName: any;
+    pageName: string;
     displayDirection: string;
     alignItems: string;
     background?: string;
@@ -45,7 +47,7 @@ const DropZone = ({ name, children, pageName, displayDirection, handleNewFeature
             <Styled onClick={() => {
                 setSectionToEdit({ section: name, page: pageName })
                 setSectionDialog(!openSectionDialog)
-            }}><EditIcon style={{ color: 'rgb(73 72 72)' }} /></Styled>
+            }}><SettingsSuggestIcon style={{ color: 'rgb(73 72 72)' }} /></Styled>
         </StyledDroppableContainer>
         <EditSectionDialog openDialog={openSectionDialog && name === sectionToEdit.section} sectionToEdit={sectionToEdit} handleNewFeatures={handleNewFeatures} displayDirection={displayDirection} />
     </>

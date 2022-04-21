@@ -1,3 +1,4 @@
+import { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import { getFileContent } from "reader/services";
 import { FileDetailsTemplate } from "reader/templates";
@@ -10,10 +11,10 @@ const FileDetails = () => {
     const [widgetsList, setWidgestList] = useState<Array<IWidgetsList>>([])
 
     useEffect(() => {
-        getFileContent().then((res: any) => {
+        getFileContent().then((res: AxiosResponse) => {
             setFileDetails(res.data)
         })
-        getWidgetList().then((res: any) => setWidgestList(res.data))
+        getWidgetList().then((res: AxiosResponse) => setWidgestList(res.data))
     }, [])
 
     // const setActiveIndex = () => {

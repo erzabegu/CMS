@@ -5,8 +5,8 @@ export interface IDefaultAttributes {
     color?: string;
     margin?: string;
     padding?: string;
-    outline?: any;
-    fontStyle?: any;
+    outline?: string;
+    fontStyle?: string;
     width?: number;
     backgroundColor: string;
     maxWidth?: string;

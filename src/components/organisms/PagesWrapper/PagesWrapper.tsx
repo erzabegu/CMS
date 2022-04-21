@@ -13,6 +13,7 @@ const PagesWrapper = ({ fileDetails, addPages }: Props) => {
                 <Input
                     type='text'
                     defaultValue={page.pageName}
+                    onChange={() => { }}
                 />
             </div>)}
             <Button

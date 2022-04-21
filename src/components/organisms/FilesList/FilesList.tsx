@@ -11,7 +11,7 @@ import { FilesWrapper, StyledBox, StyledPlus } from './styled';
 
 interface Props {
     files: Array<IFile>;
-    editFile(file: any, setFileToEdit: any): void;
+    editFile(file: IFile, setFileToEdit: any): void;
     addNewFile(setAutofocus: any): void;
 }
 

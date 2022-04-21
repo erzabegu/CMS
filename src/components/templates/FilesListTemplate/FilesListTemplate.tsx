@@ -5,7 +5,7 @@ import { FileTemplateWraper } from "./styled";
 interface Props {
   files: Array<IFile>;
   setFiles: any;
-  editFile(file: any, setFileToEdit: any): void;
+  editFile(file: IFile, setFileToEdit: any): void;
   addNewFile(setAutofocus: any): void;
 }
 

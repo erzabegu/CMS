@@ -22,7 +22,7 @@ const StyledDroppableContainer = styled.div<StyledSection>`
 const Styled = styled.span` 
     position: absolute;
     top:-10px;
-    right: -3px;
+    right: -12px;
 `
 
 export { StyledDroppableContainer, Styled } 
