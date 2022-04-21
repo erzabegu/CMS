@@ -9,15 +9,17 @@ import { IContent, ISectionItem, IWidgetsList } from "reader/types";
 
 import { FileDetailsWrapper, SectionsWrapper, StyledWidgets } from "./styled";
 
+
 interface Props {
     fileDetails?: Array<IContent>,
     setFileDetails: any;
     widgetsList?: Array<IWidgetsList>;
     handleDroppableEvent(dropResult: any): void;
     addPages?(index: number, item: any): void;
+    handleNewFeature(name: any, pageName: any, feature: {}): void;
 }
 
-const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent, widgetsList, addPages }: Props) => {
+const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent, widgetsList, addPages, handleNewFeature }: Props) => {
 
     const [itemToEdit, setItemToEdit] = useState<any>({});
     const [open, setOpen] = useState<boolean>(false);
@@ -38,12 +40,6 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
         setFileDetails(newTodos)
     }
 
-    const _handleNewFeatures = (name: any, pageName: any, feature: {}) => {
-        const newTodos = [...fileDetails];
-        newTodos[pageName - 1].sections[name - 1] = { ...newTodos[pageName - 1].sections[name - 1], ...feature }
-        setFileDetails(newTodos)
-    }
-
     return <DndProvider backend={HTML5Backend}>
         <Header />
         <FileDetailsWrapper>
@@ -51,7 +47,7 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
             <SectionsWrapper>
                 {fileDetails.map((page: any) => <>
                     {page.sections.map((s: any) => <>
-                        <DropZone handleNewFeatures={_handleNewFeatures} displayDirection={s.displayDirection} alignItems={s.alignItems} background={s.background} pageName={page.pageId} name={s.sectionId} >
+                        <DropZone handleNewFeatures={handleNewFeature} displayDirection={s.displayDirection} alignItems={s.alignItems} background={s.background} pageName={page.pageId} name={s.sectionId} >
                             {s.items.map((item: ISectionItem, index: number) => <div key={index} onClick={() => {
                                 setItemToEdit({ item: index, section: s.sectionId, page: page.pageId, itemId: item.itemId })
                             }}>

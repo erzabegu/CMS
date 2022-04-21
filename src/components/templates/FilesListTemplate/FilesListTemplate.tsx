@@ -5,13 +5,15 @@ import { FileTemplateWraper } from "./styled";
 interface Props {
   files: Array<IFile>;
   setFiles: any;
+  editFile(file: any, setFileToEdit: any): void;
+  addNewFile(setAutofocus: any): void;
 }
 
-const FilesListTemplate = ({ files, setFiles }: Props) => {
+const FilesListTemplate = ({ files, setFiles, editFile, addNewFile }: Props) => {
   return <>
     <Header />
     <FileTemplateWraper>
-      <FilesListOrganism files={files} setFiles={setFiles}></FilesListOrganism>
+      <FilesListOrganism files={files} editFile={editFile} addNewFile={addNewFile}/>
     </FileTemplateWraper>
   </>
 }

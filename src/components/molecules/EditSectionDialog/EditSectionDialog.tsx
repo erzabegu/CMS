@@ -11,7 +11,6 @@ import {
     FormatAlignCenterIcon,
     AlignVerticalTopIcon
 } from "../../assets/icons/icons";
-
 import { AddCustomPicker } from '../AddCustomPicker';
 import { EditSectionSettings } from './styled';
 
@@ -36,13 +35,25 @@ const EditSectionDialog = ({ openDialog, displayDirection, handleNewFeatures, se
             onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { displayDirection: 'row' })} />
 
         {displayDirection === 'column' ? <>
-            <Icon iconName={<FormatAlignLeftIcon />} onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-start' })} />
-            <Icon iconName={<FormatAlignCenterIcon />} onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'center' })} />
-            <Icon iconName={<FormatAlignRightIcon />} onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-end' })} />
+            <Icon
+                iconName={<FormatAlignLeftIcon />}
+                onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-start' })} />
+            <Icon
+                iconName={<FormatAlignCenterIcon />}
+                onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'center' })} />
+            <Icon
+                iconName={<FormatAlignRightIcon />}
+                onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-end' })} />
         </> : <>
-            <Icon iconName={<AlignVerticalTopIcon />} onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-start' })} />
-            <Icon iconName={<VerticalAlignCenter />} onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'center' })} />
-            <Icon iconName={<AlignVerticalBottom />} onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-end' })} />
+            <Icon
+                iconName={<AlignVerticalTopIcon />}
+                onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-start' })} />
+            <Icon
+                iconName={<VerticalAlignCenter />}
+                onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'center' })} />
+            <Icon
+                iconName={<AlignVerticalBottom />}
+                onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-end' })} />
         </>
         }
         <Icon

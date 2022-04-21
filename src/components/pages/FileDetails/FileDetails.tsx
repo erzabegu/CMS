@@ -43,13 +43,20 @@ const FileDetails = () => {
         })
     }
 
+    const _handleNewFeatures = (name: any, pageName: any, feature: {}) => {
+        const newTodos = [...fileDetails];
+        newTodos[pageName - 1].sections[name - 1] = { ...newTodos[pageName - 1].sections[name - 1], ...feature }
+        setFileDetails(newTodos)
+    }
+
 
     return <FileDetailsTemplate
-        handleDroppableEvent={_handleDroppableEvent}
         fileDetails={fileDetails}
-        setFileDetails={setFileDetails}
         widgetsList={widgetsList}
+        setFileDetails={setFileDetails}
         addPages={_addPages}
+        handleDroppableEvent={_handleDroppableEvent}
+        handleNewFeature={_handleNewFeatures}
     />
 
 }

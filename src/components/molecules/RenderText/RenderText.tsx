@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { TextArea } from 'reader/atoms'
-import styled from 'styled-components';
 import { EditTextDialog } from '../EditTextDialog';
 import { RenderTextWrapper } from './styled';
 

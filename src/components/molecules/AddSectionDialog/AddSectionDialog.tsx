@@ -6,7 +6,6 @@ interface Props {
     open: boolean;
     parentId: any;
     index: any;
-
     addSection?(parentId: any, index: any, direction: any): void;
 }
 

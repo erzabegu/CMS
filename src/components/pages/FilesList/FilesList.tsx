@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getFiles } from "reader/services";
+import { addFile, editFile, getFiles } from "reader/services";
 import { FilesListTemplate } from "reader/templates";
 import { IFile } from "reader/types";
 
@@ -11,8 +11,19 @@ const FilesList = () => {
         getFiles().then((res: any) => setFiles(res.data))
     }, [])
 
+    const _editFile = (file: IFile, setFileToEdit: any) => {
+        file.id && editFile(file.id, { ...file, fileName: file.fileName, }).then((res: any) => console.log(res)).catch((e) => console.log(e))
+        setFileToEdit(null)
+    }
+
+    const _addNewFile = (setAutofocus: any) => {
+        addFile(files && { id: (files.length + 1), fileName: `File${files.length + 1}` }).then(() => getFiles().then((res: any) => {
+            setAutofocus(true)
+            setFiles(res.data)
+        }))
+    }
     return (
-        <FilesListTemplate files={files} setFiles={setFiles}/>
+        <FilesListTemplate files={files} setFiles={setFiles} editFile={_editFile} addNewFile={_addNewFile} />
     )
 }
 

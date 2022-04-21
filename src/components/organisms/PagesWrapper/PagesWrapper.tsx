@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button, Input } from 'reader/atoms';
 import { Pageswrapper } from './styled';
 
@@ -17,8 +16,9 @@ const PagesWrapper = ({ fileDetails, addPages }: Props) => {
                 />
             </div>)}
             <Button
+                value={'+'}
                 onClick={() => addPages(fileDetails.length, fileDetails.length + 1)}
-                value={'+'} />
+            />
         </Pageswrapper>
     </>;
 }

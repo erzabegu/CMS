@@ -13,7 +13,6 @@ interface DropResult {
     children: any;
     tipi?: any;
     src?: string;
-
     handleDroppableEvent?(dropResult: DropResult): void;
 }
 

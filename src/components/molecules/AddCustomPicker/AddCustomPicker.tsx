@@ -1,12 +1,12 @@
 import { CustomColorPicker } from 'reader/atoms';
 import styled from 'styled-components';
+import { PickerWrapper } from './styled';
 
 interface Props {
     openPicker: boolean;
     width: string;
     color: string;
     colorsPalette?: Array<string>;
-
     onChangeComplete(color: any): void;
 }
 
@@ -17,7 +17,3 @@ const AddCustomPicker = ({ openPicker, width, color, onChangeComplete, colorsPal
 }
 
 export default AddCustomPicker
-
-const PickerWrapper = styled.div`
-    padding: 0px 10px;
-`
