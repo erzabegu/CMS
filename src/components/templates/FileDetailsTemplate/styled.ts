@@ -5,17 +5,6 @@ const FileDetailsWrapper = styled.div`
     box-sizing: border-box; 
     justify-content: stretch;
 `
-
-// const PagesWrapper = styled.div`
-//     flex-grow: 1;
-//     background-color: rgb(240 231 234);
-//     padding: 10px;
-//     border-radius: 5px; 
-//     align-items: center; 
-//     min-height: 86.5vh;
-//     align-self: stretch; 
-//     text-align: center;
-// `
 const SectionsWrapper = styled.div`
     flex-grow: 10;
     max-width: 900px;

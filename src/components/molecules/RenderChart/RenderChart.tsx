@@ -2,12 +2,13 @@ import { DoughnutChart } from "reader/atoms"
 import styled from "styled-components";
 
 interface Props {
-  chartData: any;
+  chartData?: any;
+  item: any;
 }
 
-const RenderChart = ({ chartData }: Props) => {
+const RenderChart = ({ chartData, item }: Props) => {
   return <ChartWrapper>
-    <DoughnutChart data={chartData} />
+    {chartData && <DoughnutChart data={chartData} />}
   </ChartWrapper>
 }
 

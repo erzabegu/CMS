@@ -8,4 +8,4 @@ const RenderImageWrapper = styled.div`
     padding: 5px;
 `
 
-export { RenderImageWrapper, StyledEditBox}
+export { RenderImageWrapper, StyledEditBox }

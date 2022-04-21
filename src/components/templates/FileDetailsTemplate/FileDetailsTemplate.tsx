@@ -2,15 +2,12 @@ import { useEffect, useState } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
+import { Button } from "reader/atoms";
+import { AddSectionDialog } from "reader/molecules";
 import { DropZone, Header, PagesWrapper, RenderItems, WidgetList } from "reader/organisms";
-
 import { IContent, ISectionItem, IWidgetsList } from "reader/types";
 
-
 import { FileDetailsWrapper, SectionsWrapper, StyledWidgets } from "./styled";
-import styled from "styled-components";
-import { AddSectionDialog } from "reader/molecules";
-import { Button } from "reader/atoms";
 
 interface Props {
     fileDetails?: Array<IContent>,
@@ -22,32 +19,10 @@ interface Props {
 
 const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent, widgetsList, addPages }: Props) => {
 
-    const data = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green'],
-        datasets: [
-            {
-                label: '# of Votes',
-                data: [12, 19, 3, 5],
-                backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 206, 86)',
-                    'rgb(75, 192, 192)',
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                ],
-                borderWidth: 1,
-            },
-        ],
-    };
-
     const [itemToEdit, setItemToEdit] = useState<any>({});
     const [open, setOpen] = useState<boolean>(false);
 
+    const data = {}
 
     const addSection = (parentId: number, index: number, displayDirection: string) => {
         const newTodos = [...fileDetails];
@@ -69,10 +44,6 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
         setFileDetails(newTodos)
     }
 
-    useEffect(() => {
-        console.log(fileDetails)
-    }, [fileDetails])
-
     return <DndProvider backend={HTML5Backend}>
         <Header />
         <FileDetailsWrapper>
@@ -84,31 +55,26 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
                             {s.items.map((item: ISectionItem, index: number) => <div key={index} onClick={() => {
                                 setItemToEdit({ item: index, section: s.sectionId, page: page.pageId, itemId: item.itemId })
                             }}>
-                                <RenderItems chartData={data} handleUpdate={handleUpdate} item={item} type={item.type} />
+                                <RenderItems chartData={data && data} handleUpdate={handleUpdate} item={item} type={item.type} />
                             </div>)}
                         </DropZone>
                     </>)}
-                    <Button onClick={() => setOpen(!open)} value={'+'} color={'#c1c1c1'}></Button>
+                    <Button
+                        value={'+'}
+                        color={'#c1c1c1'}
+                        onClick={() => setOpen(!open)} />
                     <AddSectionDialog open={open} addSection={addSection} parentId={page.pageId - 1} index={page.sections.length}></AddSectionDialog>
                 </>)}
             </SectionsWrapper>
             <StyledWidgets>
-                <div style={{ position: 'sticky', top: '0px', height: '100px' }}>
-                    {widgetsList.map((widget) => <WidgetList
-                        fileDetails={fileDetails}
-                        handleDroppableEvent={handleDroppableEvent}
-                        children={widget.iconName}
-                        tipi={widget.type}
-                        src={widget.src} />)}
-                </div>
+                {widgetsList.map((widget) => <WidgetList
+                    handleDroppableEvent={handleDroppableEvent}
+                    children={widget.iconName}
+                    tipi={widget.type}
+                    src={widget.src} />)}
             </StyledWidgets>
         </FileDetailsWrapper>
     </DndProvider>
 }
 
 export default FileDetailsTemplate;
-
-const StyledSpan = styled.div`
-    color: #c1c1c1, 
-    fontSize: 22px,
-`

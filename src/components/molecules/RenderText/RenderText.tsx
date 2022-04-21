@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { TextArea } from 'reader/atoms'
 import styled from 'styled-components';
 import { EditTextDialog } from '../EditTextDialog';
+import { RenderTextWrapper } from './styled';
 
 interface Props {
     item: any;
@@ -11,7 +12,7 @@ interface Props {
 const RenderText = ({ item, handleUpdate }: Props) => {
     const [edit, setEdit] = useState<boolean>(false);
 
-    return <div style={{ padding: '5px', position: "relative" }}>
+    return <RenderTextWrapper>
         <TextArea
             placeholder={item.placeholder}
             defaultValue={item.itemName}
@@ -31,7 +32,8 @@ const RenderText = ({ item, handleUpdate }: Props) => {
             onClick={() => setEdit(!edit)}
         />
         <EditTextDialog edit={edit} item={item} handleUpdate={handleUpdate} />
-    </div>
+    </RenderTextWrapper>
 }
 
 export default RenderText
+
