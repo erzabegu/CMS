@@ -4,12 +4,13 @@ import { StyledSpan } from './styled';
 interface Props {
     iconName: React.ReactNode;
     color?: string;
+    backgroundColor?: string;
 
-    onClick?(): void;
+    onClick?(e?: any): void;
 }
 
-const Icon = ({ iconName, color, onClick }: Props) => {
-    return <StyledSpan style={{ color: color }} onClick={onClick}>{iconName}</StyledSpan>
+const Icon = ({ iconName, color, onClick, backgroundColor }: Props) => {
+    return <StyledSpan style={{ color: color, backgroundColor: backgroundColor }} onClick={onClick}>{iconName}</StyledSpan>
 }
 
 export default Icon;

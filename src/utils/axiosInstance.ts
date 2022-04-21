@@ -2,7 +2,7 @@ import axios, { Method, AxiosResponse, AxiosRequestConfig, AxiosInstance } from 
 
 export const url = `http://localhost:5000/`;
 
-const config: AxiosRequestConfig  = {
+const config: AxiosRequestConfig = {
     baseURL: url,
 }
 

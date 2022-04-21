@@ -3,11 +3,6 @@ import { IDefaultText } from "src/types/IDefaultText";
 import styled from "styled-components";
 
 const StyledInput = styled.input<IDefaultText>`
-    border: none;
-    padding: 5px 10px;
-    text-align: center;
-    display: inline-block;
-    transition: 1s all;
     width:  ${({ width }) => width ? width : '70%'};
     margin:${({ margin }) => margin ? margin : '0px auto'} ;
     background-color: ${({ backgroundColor, theme }) => !!backgroundColor ? `${backgroundColor}` : `${theme.colors.primary.lightGrey}`};
@@ -16,10 +11,14 @@ const StyledInput = styled.input<IDefaultText>`
     color: ${({ theme, color }) => color || theme.colors.primary.black};
     line-height: ${({ lineHeight }) => lineHeight || "unset"};
     align-self: ${({ alignSelf }) => alignSelf && alignSelf};
-    margin: ${({ margin }) => margin && margin};
     padding: ${({ padding }) => padding && padding};
     outline: ${({ outline }) => outline && outline};
     font-style: ${({ fontStyle }) => fontStyle ? fontStyle : 'normal'};
+    display: ${({ display }) => display ? display : 'inline-block'};
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    transition: 1s all;
     overflow: hidden;
     text-overflow: ellipsis;
     border-radius: 7px;

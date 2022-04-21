@@ -11,4 +11,5 @@ export interface IDefaultText {
     outline?: string;
     fontStyle?: string;
     width?: string;
+    display?: string;
 }

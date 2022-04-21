@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { StyledInput } from './styled';
 
 interface Props {
@@ -22,6 +21,7 @@ interface Props {
     contenteditable?: boolean;
     max?: number;
     min?: number;
+    display?: string;
     value?: string | number;
 
     onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
@@ -30,12 +30,8 @@ interface Props {
     onFocus?(e: any): void;
 }
 
-
-
-const Input = (props: Props) => {
-    return <>
-        {(props.type === 'text' || props.type === 'number') && <StyledInput {...props} />}
-    </>
-}
+const Input = React.forwardRef((props: Props, ref) => {
+    return <StyledInput ref={ref} {...props} />
+})
 
 export default Input

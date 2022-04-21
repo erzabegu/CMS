@@ -1,6 +1,7 @@
 import React from "react";
 import { Input, Label } from "reader/atoms";
 import styled from "styled-components";
+import { Inputwrapper } from "./styled";
 
 interface Props {
     labelName: string;
@@ -30,10 +31,3 @@ const InputWrapper = (props: Props) => {
 }
 
 export default InputWrapper
-
-const Inputwrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin: 10px 0px 0px 0px;
-`

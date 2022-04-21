@@ -50,7 +50,7 @@ const DropZone = ({ name, children, pageName, displayDirection, handleNewFeature
     }))
 
 
-    const [pickerColor, setPickerColor] = useState<any>('#f6f4f4')
+    const [pickerColor, setPickerColor] = useState<string>('#f6f4f4')
 
     const isActive = canDrop && isOver
     let bg = '#f6f4f4'
