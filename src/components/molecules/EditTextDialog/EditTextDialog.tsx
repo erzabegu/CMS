@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Icon } from 'reader/atoms'
-import { ColorizeIcon, FormatBoldRoundedIcon, FormatColorFillIcon, FormatItalicRoundedIcon } from 'src/components/assets/icons/icons'
+import { ColorizeIcon, FormatBoldRoundedIcon, FormatColorFillIcon, FormatItalicRoundedIcon } from 'src/components/icons/icons'
 import styled from 'styled-components';
 import { AddCustomPicker } from '../AddCustomPicker';
 

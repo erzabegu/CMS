@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { IFile } from 'reader/types'
 import FileOpenOutlinedIcon from '@mui/icons-material/FileOpenOutlined';
 import AddIcon from '@mui/icons-material/Add';
-import { addFile, editFile, getFiles } from 'reader/services';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useNavigate } from 'react-router-dom';
 import { InputWrapper } from 'reader/molecules';
@@ -23,7 +22,7 @@ const FilesListOrganism = ({ files, editFile, addNewFile }: Props) => {
 
 
     return <FilesWrapper>
-        {files.map((file: IFile, index: number) => <><StyledBox key={index}>
+        {files.map((file: IFile, index: number) => <StyledBox key={index}>
             <span style={{ cursor: 'pointer' }}><FileOpenOutlinedIcon onClick={() => navigate(`/${file.id}`)}></FileOpenOutlinedIcon></span>
             <InputWrapper
                 labelName={'FileName'}
@@ -36,7 +35,7 @@ const FilesListOrganism = ({ files, editFile, addNewFile }: Props) => {
             />
             {file.id === fileToEdit && <CircularProgress size={12} color={"inherit"} style={{ padding: '3px' }} />}
             {files.length === index + 1 && <StyledPlus><AddIcon style={{ height: '15px', width: '15px', margin: '2px 2px' }} onClick={() => addNewFile(setAutofocus)} /></StyledPlus>}
-        </StyledBox></>)}
+        </StyledBox>)}
     </FilesWrapper>
 }
 

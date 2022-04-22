@@ -1,22 +1,22 @@
 import AlignHorizontalCenterIcon from '@mui/icons-material/AlignHorizontalCenter';
+import FormatItalicRoundedIcon from '@mui/icons-material/FormatItalicRounded';
+import VerticalAlignCenter from '@mui/icons-material/VerticalAlignCenter';
 import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter';
 import ViewColumnRoundedIcon from '@mui/icons-material/ViewColumnRounded';
+import AlignVerticalBottom from '@mui/icons-material/AlignVerticalBottom';
+import FormatBoldRoundedIcon from '@mui/icons-material/FormatBoldRounded';
 import TableRowsRoundedIcon from '@mui/icons-material/TableRowsRounded';
-import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
 import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight';
 import AlignVerticalTopIcon from '@mui/icons-material/AlignVerticalTop';
-import UploadFileIcon from '@mui/icons-material/UploadFile';
-import FormatBoldRoundedIcon from '@mui/icons-material/FormatBoldRounded';
-import FormatItalicRoundedIcon from '@mui/icons-material/FormatItalicRounded';
-import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
-import ColorizeIcon from '@mui/icons-material/Colorize';
 import FileOpenOutlinedIcon from '@mui/icons-material/FileOpenOutlined';
-import AddIcon from '@mui/icons-material/Add';
-import TextFieldsIcon from '@mui/icons-material/TextFields';
-import ImageIcon from '@mui/icons-material/Image';
+import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
+import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
 import DonutLargeSharpIcon from '@mui/icons-material/DonutLargeSharp';
-import AlignVerticalBottom from "@mui/icons-material/AlignVerticalBottom";
-import VerticalAlignCenter from "@mui/icons-material/VerticalAlignCenter";
+import UploadFileIcon from '@mui/icons-material/UploadFile';
+import TextFieldsIcon from '@mui/icons-material/TextFields';
+import ColorizeIcon from '@mui/icons-material/Colorize';
+import ImageIcon from '@mui/icons-material/Image';
+import AddIcon from '@mui/icons-material/Add';
 
 export {
     AlignHorizontalCenterIcon,

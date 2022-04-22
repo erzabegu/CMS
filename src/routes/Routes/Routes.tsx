@@ -6,7 +6,7 @@ const Routes = () => {
     const routes = [
         {
             path: '*',
-            element: <h1>ska sen</h1>,
+            element: <h1>ska kurgjo</h1>,
         },
         {
             path: '/',

@@ -1,5 +1,5 @@
 import { Icon } from 'reader/atoms';
-import { TableRowsRoundedIcon, ViewColumnRoundedIcon } from 'src/components/assets/icons/icons';
+import { TableRowsRoundedIcon, ViewColumnRoundedIcon } from 'src/components/icons/icons';
 import { AddSectionWrapper } from './styled';
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 
 const AddSectionDialog = (props: Props) => {
     return <>
-        {props.open === true && <AddSectionWrapper>
+        {props.open && <AddSectionWrapper>
             <Icon iconName={<TableRowsRoundedIcon />} onClick={() => props.addSection(props.parentId, props.index, 'column')} />
             <Icon iconName={<ViewColumnRoundedIcon />} onClick={() => props.addSection(props.parentId, props.index, 'row')} />
         </AddSectionWrapper>}

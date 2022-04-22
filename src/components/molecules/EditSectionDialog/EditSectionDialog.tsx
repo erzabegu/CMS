@@ -10,7 +10,7 @@ import {
     FormatColorFillIcon,
     FormatAlignCenterIcon,
     AlignVerticalTopIcon
-} from "../../assets/icons/icons";
+} from "reader/icons";
 import { AddCustomPicker } from '../AddCustomPicker';
 import { EditSectionSettings } from './styled';
 

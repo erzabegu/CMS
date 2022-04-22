@@ -18,4 +18,4 @@ export {
     DonutLargeSharpIcon,
     VerticalAlignCenter,
     AlignVerticalBottom,
-} from './icons'
+} from '../icons'

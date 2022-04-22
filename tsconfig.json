@@ -15,6 +15,7 @@
             "reader/layouts": ["src/components/layouts"],
             "reader/atoms": ["src/components/atoms"],
             "reader/pages": ["src/components/pages"],
+            "reader/icons": ["src/components/icons"],
             "reader/services": ["src/services"],
             "reader/routes": ["src/routes"],
             "reader/styles": ["src/styles"],

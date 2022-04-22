@@ -23,6 +23,7 @@ const FilesList = () => {
             setFiles(res.data)
         }))
     }
+    
     return (
         <FilesListTemplate files={files} setFiles={setFiles} editFile={_editFile} addNewFile={_addNewFile} />
     )

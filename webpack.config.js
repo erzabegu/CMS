@@ -19,6 +19,7 @@ module.exports = {
             "reader/layouts": path.resolve(".", "src/components/layouts"),
             "reader/atoms": path.resolve(".", "src/components/atoms"),
             "reader/pages": path.resolve(".", "src/components/pages"),
+            "reader/icons": path.resolve(".", "src/components/icons"),
             "reader/services": path.resolve(".", "src/services"),
             "reader/routes": path.resolve(".", "src/routes"),
             "reader/styles": path.resolve(".", "src/styles"),
@@ -27,7 +28,6 @@ module.exports = {
             "reader/store": path.resolve(".", "src/store"),
             "reader/types": path.resolve(".", "src/types"),
             "reader/utils": path.resolve(".", "src/utils"),
-            "reader/icons": path.resolve(".", "src/components/assets"),
         },
     },
     module: {

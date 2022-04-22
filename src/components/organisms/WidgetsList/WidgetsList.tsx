@@ -4,7 +4,7 @@ import Text from '../../assets/images/text.png';
 import PlaceholderImage from '../../assets/images/PlaceholderImage.png';
 import ChartPlaceholder from '../../assets/images/nn.png';
 import { StyledWrapper } from './styled';
-import { DonutLargeSharpIcon, ImageIcon, TextFieldsIcon } from 'src/components/assets/icons/icons';
+import { DonutLargeSharpIcon, ImageIcon, TextFieldsIcon } from 'reader/icons';
 
 interface DropResult {
     name?: string;
