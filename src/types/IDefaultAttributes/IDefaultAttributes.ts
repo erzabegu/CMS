@@ -8,8 +8,9 @@ export interface IDefaultAttributes {
     outline?: string;
     fontStyle?: string;
     width?: number;
-    backgroundColor: string;
+    backgroundColor?: string;
     maxWidth?: string;
     border?: string;
     borderRadius?: string;
+    display?: string;
 }

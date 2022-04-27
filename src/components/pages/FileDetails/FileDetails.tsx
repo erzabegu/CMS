@@ -40,32 +40,29 @@ const FileDetails = () => {
                 if (page.pageId === dropResult.pageName) {
                     page.sections.find((section: any) => {
                         if (section.sectionId === dropResult.name) {
-                            if (dropResult.tipi === "chart") {
-                                section.items.push({
-                                    itemId: Math.floor(Math.random() * 20), itemName: "Item name", type: dropResult.tipi,
-                                    data: {
-                                        datasets: [
-                                            {
-                                                data: [12, 19, 3, 5, 2, 3],
-                                                backgroundColor: [
-                                                    '#fde0dd', '#fcc5c0', '#fa9fb5', '#f768a1', '#dd3497', '#ae017e'
-                                                ],
-                                                borderColor: [
-                                                    '#fde0dd', '#fcc5c0', '#fa9fb5', '#f768a1', '#dd3497', '#ae017e'
+                            section.items.push({
+                                itemId: Math.floor(Math.random() * 20),
+                                itemName: "Item name",
+                                type: dropResult.tipi,
+                                data: {
+                                    datasets: [
+                                        {
+                                            data: [12, 19, 3, 5, 2, 3],
+                                            backgroundColor: [
+                                                '#fde0dd', '#fcc5c0', '#fa9fb5', '#f768a1', '#dd3497', '#ae017e'
+                                            ],
+                                            borderColor: [
+                                                '#fde0dd', '#fcc5c0', '#fa9fb5', '#f768a1', '#dd3497', '#ae017e'
 
-                                                ],
-                                                borderWidth: 2
-                                            }
-                                        ]
-                                    }
-                                })
-                            }
-                            else if (dropResult.tipi === "list") {
-                                section.items.push({ itemId: Math.floor(Math.random() * 20), itemName: "Item name", type: dropResult.tipi, listItems: [{ id: 1, text: "FistListItem" }] })
-                            }
-                            else {
-                                section.items.push({ itemId: Math.floor(Math.random() * 20), itemName: "Item name", type: dropResult.tipi, color: 'black' })
-                            }
+                                            ],
+                                            borderWidth: 2
+                                        }
+                                    ]
+                                },
+                                listItems: [{ id: 1, text: "FistListItem" }],
+                                color: 'black',
+                                defaultCode: "<span>"
+                            })
                         }
                     })
                 }

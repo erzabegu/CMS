@@ -41,9 +41,7 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
 
     const handleUpdateWithSection = (passedItem: any, pageId: any, sectionId: any, itemId: any) => {
         const newTodos = [...fileDetails];
-        newTodos[pageId - 1].sections[sectionId - 1].items[itemId] = passedItem
-        // newTodos[pageId - 1].sections[sectionId - 1].items.find((item: any) => item.itemId === itemId &&
-        //     newTodos[pageId - 1].sections[sectionId - 1].items = [{ ...newTodos[pageId - 1].sections[sectionId - 1].items, passedItem }])
+        newTodos[pageId - 1].sections[sectionId - 1].items.push = passedItem
     }
 
 

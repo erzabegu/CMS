@@ -18,7 +18,7 @@ const RenderList = ({ item, handleUpdate, handleUpdateWithSection, pageId, secti
         handleUpdateWithSection(todos, pageId, sectionId, i)
     }
 
-    return <div >
+    return <div>
         {item.listItems.length > 0 && item.listItems.map((item: any, index: any) => <ul style={{ position: "relative" }} key={index}>
             <li><Input type={'text'} backgroundColor={'#f6f4f4'} defaultValue={item.text} /></li>
         </ul>

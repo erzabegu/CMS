@@ -1,4 +1,7 @@
-import { RenderChart, RenderImage, RenderList, RenderText } from "reader/molecules"
+import { RenderChart, RenderCode, RenderImage, RenderList, RenderText } from "reader/molecules"
+import ReactMarkdown from 'react-markdown'
+import rehypeHighlight from 'rehype-highlight'
+
 
 interface Props {
     type: string;
@@ -9,6 +12,7 @@ interface Props {
     pageId: any;
 }
 
+
 const RenderItems = ({ type, item, handleUpdate, handleUpdateWithSection, sectionId, pageId }: Props) => {
     switch (type) {
         case 'text':
@@ -18,7 +22,9 @@ const RenderItems = ({ type, item, handleUpdate, handleUpdateWithSection, sectio
         case 'chart':
             return <RenderChart item={item} handleUpdate={handleUpdate} />
         case 'list':
-            return <RenderList item={item} handleUpdate={handleUpdate} handleUpdateWithSection={handleUpdateWithSection} sectionId={sectionId} pageId={pageId}/>
+            return <RenderList item={item} handleUpdate={handleUpdate} handleUpdateWithSection={handleUpdateWithSection} sectionId={sectionId} pageId={pageId} />
+        case 'code':
+            return <RenderCode item={item} handleUpdate={handleUpdate} />
         default:
             break;
     }

@@ -5,7 +5,7 @@ import PlaceholderImage from '../../assets/images/PlaceholderImage.png';
 import ChartPlaceholder from '../../assets/images/nn.png';
 import ListPlaceholder from '../../assets/images/listPlaceholder.png';
 import { StyledWrapper } from './styled';
-import { DonutLargeSharpIcon, FormatListBulletedIcon, ImageIcon, ListIcon, TextFieldsIcon } from 'reader/icons';
+import { CodeIcon, DonutLargeSharpIcon, FormatListBulletedIcon, ImageIcon, ListIcon, TextFieldsIcon } from 'reader/icons';
 
 interface DropResult {
     name?: string;
@@ -28,6 +28,8 @@ const RenderIcons = (iconName: string) => {
             return <DonutLargeSharpIcon />
         case 'ListIcon':
             return <FormatListBulletedIcon />
+        case 'CodeIcon':
+            return <CodeIcon />
     }
 }
 
@@ -41,6 +43,7 @@ const RenderSrc = (src: string) => {
             return ChartPlaceholder
         case 'List':
             return ListPlaceholder
+        // case 'Code'
     }
 }
 

@@ -1,4 +1,5 @@
 export interface ISectionItem {
+    defaultCode?: string;
     itemId: number;
     itemName: string;
     type: string;

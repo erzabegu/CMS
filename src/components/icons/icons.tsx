@@ -18,6 +18,7 @@ import TextFieldsIcon from '@mui/icons-material/TextFields';
 import ColorizeIcon from '@mui/icons-material/Colorize';
 import ImageIcon from '@mui/icons-material/Image';
 import ListIcon from '@mui/icons-material/List';
+import CodeIcon from '@mui/icons-material/Code';
 import AddIcon from '@mui/icons-material/Add';
 
 export {
@@ -41,5 +42,6 @@ export {
     VerticalAlignCenter,
     AlignVerticalBottom,
     ListIcon,
-    FormatListBulletedIcon
+    FormatListBulletedIcon,
+    CodeIcon
 }

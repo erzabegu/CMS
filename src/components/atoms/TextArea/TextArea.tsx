@@ -6,11 +6,12 @@ interface Props {
     children?: string;
     defaultValue?: string;
     placeholder?: string;
+    ref?: any;
 
     onBlur?(): void;
     onClick?(): void;
     onFocus?(): void;
-    onChange?(): void;
+    onChange?(e?: any): void;
 }
 
 const TextArea = (props: Props) => {
