@@ -18,6 +18,7 @@ interface Props {
     fontStyle?: any;
     accept?: string;
     width?: string;
+    backgroundColor?: string;
     contenteditable?: boolean;
     max?: number;
     min?: number;

@@ -24,7 +24,6 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
     const [itemToEdit, setItemToEdit] = useState<any>({});
     const [open, setOpen] = useState<boolean>(false);
 
-    const data = {}
 
     const addSection = (parentId: number, index: number, displayDirection: string) => {
         const newTodos = [...fileDetails];
@@ -40,6 +39,14 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
         setFileDetails(newTodos)
     }
 
+    const handleUpdateWithSection = (passedItem: any, pageId: any, sectionId: any, itemId: any) => {
+        const newTodos = [...fileDetails];
+        newTodos[pageId - 1].sections[sectionId - 1].items[itemId] = passedItem
+        // newTodos[pageId - 1].sections[sectionId - 1].items.find((item: any) => item.itemId === itemId &&
+        //     newTodos[pageId - 1].sections[sectionId - 1].items = [{ ...newTodos[pageId - 1].sections[sectionId - 1].items, passedItem }])
+    }
+
+
     return <DndProvider backend={HTML5Backend}>
         <Header />
         <FileDetailsWrapper>
@@ -51,7 +58,7 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
                             {s.items.map((item: ISectionItem, index: number) => <div key={index} onClick={() => {
                                 setItemToEdit({ item: index, section: s.sectionId, page: page.pageId, itemId: item.itemId })
                             }}>
-                                <RenderItems chartData={data && data} handleUpdate={handleUpdate} item={item} type={item.type} />
+                                <RenderItems handleUpdate={handleUpdate} item={item} sectionId={s.sectionId} pageId={page.pageId} type={item.type} handleUpdateWithSection={handleUpdateWithSection} />
                             </div>)}
                         </DropZone>
                     </>)}

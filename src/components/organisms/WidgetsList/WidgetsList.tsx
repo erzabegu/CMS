@@ -3,8 +3,9 @@ import { DragPreviewImage, useDrag } from 'react-dnd';
 import Text from '../../assets/images/text.png';
 import PlaceholderImage from '../../assets/images/PlaceholderImage.png';
 import ChartPlaceholder from '../../assets/images/nn.png';
+import ListPlaceholder from '../../assets/images/listPlaceholder.png';
 import { StyledWrapper } from './styled';
-import { DonutLargeSharpIcon, ImageIcon, TextFieldsIcon } from 'reader/icons';
+import { DonutLargeSharpIcon, FormatListBulletedIcon, ImageIcon, ListIcon, TextFieldsIcon } from 'reader/icons';
 
 interface DropResult {
     name?: string;
@@ -25,6 +26,8 @@ const RenderIcons = (iconName: string) => {
             return <ImageIcon />
         case 'DonutLargeSharpIcon':
             return <DonutLargeSharpIcon />
+        case 'ListIcon':
+            return <FormatListBulletedIcon />
     }
 }
 
@@ -36,6 +39,8 @@ const RenderSrc = (src: string) => {
             return PlaceholderImage
         case 'Chart':
             return ChartPlaceholder
+        case 'List':
+            return ListPlaceholder
     }
 }
 

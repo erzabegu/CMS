@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { Icon, Image, Input } from 'reader/atoms'
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import { Icon, Image, Input } from 'reader/atoms';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
-import { RenderImageWrapper, StyledEditBox } from './styled';
+import { RenderImageWrapper } from './styled';
 import { EditImageDialog } from '../EditImageDialog';
 
 interface Props {
@@ -31,7 +30,6 @@ const RenderImage = ({ item, handleUpdate }: Props) => {
         }
         reader.readAsDataURL(e.target.files[0])
     };
-
 
     return <RenderImageWrapper>
         {!item.src ? <><Icon iconName={<UploadFileIcon />} onClick={handleClick} />

@@ -16,7 +16,6 @@ const EditTextDialog = ({ edit, item, handleUpdate }: Props) => {
     const [openColorPicker, setOpenColorPicker] = useState<boolean>(false)
     const [openPicker, setOpenPicker] = useState<boolean>(false)
     const [itemColor, setItemColor] = useState<string>("");
-    const [itemBackground, setItemBackground] = useState<string>("");
 
     return <>
         {edit && <StyledEdit>
@@ -56,8 +55,7 @@ const EditTextDialog = ({ edit, item, handleUpdate }: Props) => {
                 color={item.color}
                 width={'200px'}
                 onChangeComplete={(color) => {
-                    setItemBackground(color.hex)
-                    handleUpdate({ ...item, backgroundColor: itemBackground ? itemBackground : 'white' })
+                    handleUpdate({ ...item, backgroundColor: color.hex ? color.hex : 'white' })
                 }} />
 
         </StyledEdit>

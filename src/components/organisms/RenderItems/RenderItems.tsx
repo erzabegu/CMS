@@ -1,20 +1,24 @@
-import { RenderChart, RenderImage, RenderText } from "reader/molecules"
+import { RenderChart, RenderImage, RenderList, RenderText } from "reader/molecules"
 
 interface Props {
     type: string;
     item: any;
-    chartData?: any;
     handleUpdate?(passedItem: any): void;
+    handleUpdateWithSection?(passedItem: any, pageId: any, sectionId: any, itemId: any): void;
+    sectionId: any;
+    pageId: any;
 }
 
-const RenderItems = ({ type, item, handleUpdate, chartData }: Props) => {
+const RenderItems = ({ type, item, handleUpdate, handleUpdateWithSection, sectionId, pageId }: Props) => {
     switch (type) {
         case 'text':
-            return <RenderText handleUpdate={handleUpdate} item={item} />
+            return <RenderText item={item} handleUpdate={handleUpdate} />
         case 'image':
             return <RenderImage item={item} handleUpdate={handleUpdate} />
         case 'chart':
-            return <RenderChart chartData={chartData} item={item} />
+            return <RenderChart item={item} handleUpdate={handleUpdate} />
+        case 'list':
+            return <RenderList item={item} handleUpdate={handleUpdate} handleUpdateWithSection={handleUpdateWithSection} sectionId={sectionId} pageId={pageId}/>
         default:
             break;
     }

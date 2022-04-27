@@ -14,27 +14,11 @@
     },
     {
       "id": 4,
-      "fileName": "erza"
+      "fileName": "File4"
     },
     {
       "id": 5,
-      "fileName": "axians"
-    },
-    {
-      "id": 6,
-      "fileName": "File6"
-    },
-    {
-      "id": 7,
-      "fileName": "File7"
-    },
-    {
-      "id": 8,
-      "fileName": "File8"
-    },
-    {
-      "id": 9,
-      "fileName": "File9"
+      "fileName": "File5"
     }
   ],
   "fileDetails": [
@@ -65,6 +49,11 @@
       "iconName": "DonutLargeSharpIcon",
       "type": "chart",
       "src": "Chart"
+    },
+    {
+      "iconName": "ListIcon",
+      "type": "list",
+      "src": "List"
     }
   ]
 }

@@ -1,5 +1,6 @@
 import AlignHorizontalCenterIcon from '@mui/icons-material/AlignHorizontalCenter';
 import FormatItalicRoundedIcon from '@mui/icons-material/FormatItalicRounded';
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import VerticalAlignCenter from '@mui/icons-material/VerticalAlignCenter';
 import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter';
 import ViewColumnRoundedIcon from '@mui/icons-material/ViewColumnRounded';
@@ -16,7 +17,9 @@ import UploadFileIcon from '@mui/icons-material/UploadFile';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import ColorizeIcon from '@mui/icons-material/Colorize';
 import ImageIcon from '@mui/icons-material/Image';
+import ListIcon from '@mui/icons-material/List';
 import AddIcon from '@mui/icons-material/Add';
+
 
 export {
     AlignHorizontalCenterIcon,
@@ -38,4 +41,6 @@ export {
     DonutLargeSharpIcon,
     VerticalAlignCenter,
     AlignVerticalBottom,
+    ListIcon,
+    FormatListBulletedIcon
 }

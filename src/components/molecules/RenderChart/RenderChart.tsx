@@ -1,14 +1,20 @@
+import { useState } from "react";
 import { DoughnutChart } from "reader/atoms"
 import styled from "styled-components";
+import { EditChartDialog } from "../EditChartDialog";
 
 interface Props {
-  chartData?: any;
   item: any;
+  handleUpdate(passedItem: any): void;
 }
 
-const RenderChart = ({ chartData, item }: Props) => {
+const RenderChart = ({ item, handleUpdate }: Props) => {
+
+  const [openEditDialog, setOpenEditDialog] = useState<boolean>(false)
+
   return <ChartWrapper>
-    {chartData && <DoughnutChart data={chartData} />}
+    <DoughnutChart data={item.data} onClick={() => { setOpenEditDialog(!openEditDialog) }} />
+    <EditChartDialog openEditDialog={openEditDialog} item={item} handleUpdate={handleUpdate} />
   </ChartWrapper>
 }
 

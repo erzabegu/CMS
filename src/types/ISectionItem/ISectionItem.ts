@@ -9,4 +9,5 @@ export interface ISectionItem {
     fontStyle?: string;
     fontWeight?: string;
     backgroundColor?: string;
+    data?: any;
 }
