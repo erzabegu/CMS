@@ -5,5 +5,7 @@ export interface ISection {
     displayDirection?: string;
     background?: string;
     alignItems?: string;
+    padding?: number;
+    margin?: number;
     items: Array<ISectionItem>
 }

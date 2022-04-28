@@ -16,6 +16,7 @@ import DonutLargeSharpIcon from '@mui/icons-material/DonutLargeSharp';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import ColorizeIcon from '@mui/icons-material/Colorize';
+import MarginIcon from '@mui/icons-material/Margin';
 import ImageIcon from '@mui/icons-material/Image';
 import ListIcon from '@mui/icons-material/List';
 import CodeIcon from '@mui/icons-material/Code';
@@ -43,5 +44,6 @@ export {
     AlignVerticalBottom,
     ListIcon,
     FormatListBulletedIcon,
-    CodeIcon
+    CodeIcon,
+    MarginIcon
 }

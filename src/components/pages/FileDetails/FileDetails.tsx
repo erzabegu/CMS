@@ -34,7 +34,6 @@ const FileDetails = () => {
     }, [fileDetails])
 
     const _handleDroppableEvent = (dropResult: any) => {
-        // console.log(dropResult, 'dropResult')
         setFileDetails((currentFileDetails: any) => {
             currentFileDetails.find((page: any) => {
                 if (page.pageId === dropResult.pageName) {
@@ -47,7 +46,7 @@ const FileDetails = () => {
                                 data: {
                                     datasets: [
                                         {
-                                            data: [12, 19, 3, 5, 2, 3],
+                                            data: [12, 19, 3, 5, 2, 5],
                                             backgroundColor: [
                                                 '#fde0dd', '#fcc5c0', '#fa9fb5', '#f768a1', '#dd3497', '#ae017e'
                                             ],
@@ -61,7 +60,7 @@ const FileDetails = () => {
                                 },
                                 listItems: [{ id: 1, text: "FistListItem" }],
                                 color: 'black',
-                                defaultCode: "<span>"
+                                defaultCode: "<span>Hello code</span>"
                             })
                         }
                     })

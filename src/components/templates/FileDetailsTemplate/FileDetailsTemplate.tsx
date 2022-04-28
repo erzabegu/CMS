@@ -52,7 +52,7 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
             <SectionsWrapper>
                 {fileDetails.map((page: any) => <>
                     {page.sections.map((s: any) => <>
-                        <DropZone handleNewFeatures={handleNewFeature} displayDirection={s.displayDirection} alignItems={s.alignItems} background={s.background} pageName={page.pageId} name={s.sectionId} >
+                        <DropZone handleNewFeatures={handleNewFeature} section={s} pageName={page.pageId} name={s.sectionId} margin={s.margin}>
                             {s.items.map((item: ISectionItem, index: number) => <div key={index} onClick={() => {
                                 setItemToEdit({ item: index, section: s.sectionId, page: page.pageId, itemId: item.itemId })
                             }}>

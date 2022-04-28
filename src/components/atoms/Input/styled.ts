@@ -17,7 +17,7 @@ const StyledInput = styled.input<IDefaultText>`
     display: ${({ display }) => display ? display : 'inline-block'};
     border: none;
     padding: 5px 10px;
-    text-align: center;
+    text-align: ${({ textAlign }) => textAlign ? textAlign : 'center'};;
     transition: 1s all;
     overflow: hidden;
     text-overflow: ellipsis;

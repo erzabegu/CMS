@@ -1,24 +1,21 @@
 import { useState } from "react";
 import { useDrop } from "react-dnd";
 
-import { EditIcon } from '@chakra-ui/icons'
 import { EditSectionDialog } from "reader/molecules";
 import { Styled, StyledDroppableContainer } from "./styled";
-import SettingsIcon from '@mui/icons-material/Settings';
 import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 
 interface DropResult {
     name: string;
     children?: any;
     pageName: string;
-    displayDirection: string;
-    alignItems: string;
-    background?: string;
+    section: any;
+    margin?: any;
     handleNewFeatures(name: any, pageName: any, feature: {}): void;
 }
 
 
-const DropZone = ({ name, children, pageName, displayDirection, handleNewFeatures, alignItems, background }: DropResult) => {
+const DropZone = ({ name, children, pageName, section, handleNewFeatures, margin }: DropResult) => {
 
     const [openSectionDialog, setSectionDialog] = useState<boolean>(false)
     const [sectionToEdit, setSectionToEdit] = useState<any>()
@@ -42,14 +39,14 @@ const DropZone = ({ name, children, pageName, displayDirection, handleNewFeature
     }
 
     return <>
-        <StyledDroppableContainer ref={drop} role={'box'} displayDirection={displayDirection} alignItems={alignItems} background={background} style={{ background: background }} >
+        <StyledDroppableContainer ref={drop} role={'box'} displayDirection={section.displayDirection} alignItems={section.alignItems} background={section.background} style={{ background: section.background }} margin={margin} padding={section.padding}>
             {children}
             <Styled onClick={() => {
                 setSectionToEdit({ section: name, page: pageName })
                 setSectionDialog(!openSectionDialog)
             }}><SettingsSuggestIcon style={{ color: 'rgb(73 72 72)' }} /></Styled>
         </StyledDroppableContainer>
-        <EditSectionDialog openDialog={openSectionDialog && name === sectionToEdit.section} sectionToEdit={sectionToEdit} handleNewFeatures={handleNewFeatures} displayDirection={displayDirection} />
+        <EditSectionDialog openDialog={openSectionDialog && name === sectionToEdit.section} sectionToEdit={sectionToEdit} handleNewFeatures={handleNewFeatures} displayDirection={section.displayDirection} />
     </>
 }
 

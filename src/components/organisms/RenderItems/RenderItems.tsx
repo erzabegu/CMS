@@ -14,19 +14,24 @@ interface Props {
 
 
 const RenderItems = ({ type, item, handleUpdate, handleUpdateWithSection, sectionId, pageId }: Props) => {
-    switch (type) {
-        case 'text':
-            return <RenderText item={item} handleUpdate={handleUpdate} />
-        case 'image':
-            return <RenderImage item={item} handleUpdate={handleUpdate} />
-        case 'chart':
-            return <RenderChart item={item} handleUpdate={handleUpdate} />
-        case 'list':
-            return <RenderList item={item} handleUpdate={handleUpdate} handleUpdateWithSection={handleUpdateWithSection} sectionId={sectionId} pageId={pageId} />
-        case 'code':
-            return <RenderCode item={item} handleUpdate={handleUpdate} />
-        default:
-            break;
+    const handleComponent = () => {
+        switch (type) {
+            case 'text':
+                return <RenderText item={item} handleUpdate={handleUpdate} />
+            case 'image':
+                return <RenderImage item={item} handleUpdate={handleUpdate} />
+            case 'chart':
+                return <RenderChart item={item} handleUpdate={handleUpdate} />
+            case 'list':
+                return <RenderList item={item} handleUpdate={handleUpdate} handleUpdateWithSection={handleUpdateWithSection} sectionId={sectionId} pageId={pageId} />
+            case 'code':
+                return <RenderCode item={item} handleUpdate={handleUpdate} />
+            default:
+                break;
+        }
     }
+    return <>
+        {handleComponent()}
+    </>
 }
 export default RenderItems

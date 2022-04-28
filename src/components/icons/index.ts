@@ -20,7 +20,7 @@ import ImageIcon from '@mui/icons-material/Image';
 import ListIcon from '@mui/icons-material/List';
 import AddIcon from '@mui/icons-material/Add';
 import CodeIcon from '@mui/icons-material/Code';
-
+import MarginIcon from '@mui/icons-material/Margin';
 
 
 export {
@@ -45,5 +45,6 @@ export {
     AlignVerticalBottom,
     ListIcon,
     FormatListBulletedIcon,
-    CodeIcon
+    CodeIcon,
+    MarginIcon
 }

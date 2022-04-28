@@ -3,26 +3,20 @@ import ReactMarkdown from 'react-markdown'
 import { Input, TextArea } from 'reader/atoms';
 import { ISectionItem } from 'reader/types';
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { duotoneEarth } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 interface Props {
     item: ISectionItem;
     handleUpdate?(passedItem: any): void;
 }
-// const markdown = `
-// ~~~js
-// int b = 6
-// ~~~
-// `;
 
 
 const RenderCode = ({ item, handleUpdate }: Props) => {
-    const [markdown, setMarkdown] = useState<string>(`~~~ 
-      ${item.defaultCode}`);
-    const [value, setValue] = useState<string>(``);
 
+    const [openEdit, setOpenEdit] = useState<boolean>(false)
+    const [markdown, setMarkdown] = useState<string>(`~~~\n${item.defaultCode}`);
 
-    return <>
+    return <> <div onClick={() => { setOpenEdit(!openEdit) }}>
         <ReactMarkdown
             children={markdown}
             components={{
@@ -30,39 +24,28 @@ const RenderCode = ({ item, handleUpdate }: Props) => {
                     return !inline && (
                         <SyntaxHighlighter
                             children={String(children).replace(/\n$/, "")}
-                            style={duotoneEarth}
+                            style={okaidia}
                             language={"javascript"}
                             PreTag="div"
                             defaultChecked={true}
                             {...props}
                         />)
-                    // const match = /language-(\w+)/.exec(className || "");
-                    // return !inline && match ? (
-                    //     <SyntaxHighlighter
-                    //         children={String(children).replace(/\n$/, "")}
-                    //         style={duotoneEarth}
-                    //         language={match[1]}
-                    //         PreTag="div"
-                    //         defaultChecked={true}
-                    //         {...props}
-                    //     />
-                    // ) : (
-                    //     <code className={className} {...props}>
-                    //         {children}
-                    //     </code>
-                    // );
                 }
             }}
         />
-        <TextArea onChange={(e: any) => {
-            setMarkdown(e.target.value)
-            handleUpdate({
-                ...item, defaultCode: markdown.includes(`~~~`) ? `${markdown} ` : markdown.includes(`~~`) || markdown === "" ? `~~~
-        ${markdown}` : `~~~
-        ${markdown}`
-            })
-        }} defaultValue={`
-        ${markdown}`} />
+    </div>
+        {openEdit === true && <TextArea
+            onChange={(e: any) => {
+                setMarkdown(e.target.value)
+                handleUpdate({
+                    ...item, defaultCode: markdown.includes(`~~~`) ? `${markdown} ` : markdown.includes(`~~`) || markdown === "" ? `~~~
+                    ${markdown}` : `~~~
+                    ${markdown}`
+                })
+            }}
+            defaultValue={`\n${markdown}`}
+            style={{ maxWidth: '800px' }}
+        />}
     </>
 }
 
