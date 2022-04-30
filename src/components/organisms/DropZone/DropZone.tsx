@@ -39,7 +39,22 @@ const DropZone = ({ name, children, pageName, section, handleNewFeatures, margin
     }
 
     return <>
-        <StyledDroppableContainer ref={drop} role={'box'} displayDirection={section.displayDirection} alignItems={section.alignItems} background={section.background} style={{ background: section.background }} margin={margin} padding={section.padding}>
+        <StyledDroppableContainer ref={drop} role={'box'}
+            style={{ background: section.background }}
+            displayDirection={section.displayDirection}
+            alignItems={section.alignItems}
+            background={section.background}
+            margin={margin}
+            padding={section.padding}
+            marginBottom={section.marginBottom}
+            marginTop={section.marginTop}
+            marginLeft={section.marginLeft}
+            marginRight={section.marginRight}
+            paddingTop={section.paddingTop}
+            paddingBottom={section.paddingBottom}
+            paddingLeft={section.paddingLeft}
+            paddingRight={section.paddingRight}
+        >
             {children}
             <Styled onClick={() => {
                 setSectionToEdit({ section: name, page: pageName })

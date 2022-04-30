@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Doughnut } from "react-chartjs-2";
 import { DoughnutChart } from "reader/atoms"
 import styled from "styled-components";
 import { EditChartDialog } from "../EditChartDialog";
@@ -13,7 +14,9 @@ const RenderChart = ({ item, handleUpdate }: Props) => {
   const [openEditDialog, setOpenEditDialog] = useState<boolean>(false)
 
   return <ChartWrapper>
-    <DoughnutChart data={item.data} onClick={() => { setOpenEditDialog(!openEditDialog) }} />
+    <DoughnutChart
+      data={{ datasets: [{ data: item.data, backgroundColor: item.backgroundColor, borderWidth: item.borderWidth }] }}
+      onClick={() => { setOpenEditDialog(!openEditDialog) }} />
     <EditChartDialog openEditDialog={openEditDialog} item={item} handleUpdate={handleUpdate} />
   </ChartWrapper>
 }

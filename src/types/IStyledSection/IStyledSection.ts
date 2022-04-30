@@ -4,4 +4,12 @@ export interface IStyledSection {
     background?: string;
     margin?: number;
     padding?: number;
+    marginTop?: number;
+    marginBottom?: number;
+    marginLeft?: number;
+    marginRight?: number;
+    paddingTop?: number;
+    paddingBottom?: number;
+    paddingLeft?: number;
+    paddingRight?: number;
 }

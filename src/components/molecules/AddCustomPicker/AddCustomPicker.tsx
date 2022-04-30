@@ -6,13 +6,14 @@ interface Props {
     openPicker: boolean;
     width: string;
     color: string;
+    triangle?: any;
     colorsPalette?: Array<string>;
     onChangeComplete(color: any): void;
 }
 
-const AddCustomPicker = ({ openPicker, width, color, onChangeComplete, colorsPalette }: Props) => {
+const AddCustomPicker = ({ openPicker, width, color, onChangeComplete, colorsPalette, triangle }: Props) => {
     return (openPicker && <PickerWrapper>
-        <CustomColorPicker width={width} color={color} colorsPalette={colorsPalette} onChangeComplete={onChangeComplete} />
+        <CustomColorPicker width={width} color={color} triangle={triangle} colorsPalette={colorsPalette} onChangeComplete={onChangeComplete} />
     </PickerWrapper>)
 }
 

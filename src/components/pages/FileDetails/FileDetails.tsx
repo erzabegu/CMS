@@ -43,21 +43,26 @@ const FileDetails = () => {
                                 itemId: Math.floor(Math.random() * 20),
                                 itemName: "Item name",
                                 type: dropResult.tipi,
-                                data: {
-                                    datasets: [
-                                        {
-                                            data: [12, 19, 3, 5, 2, 5],
-                                            backgroundColor: [
-                                                '#fde0dd', '#fcc5c0', '#fa9fb5', '#f768a1', '#dd3497', '#ae017e'
-                                            ],
-                                            borderColor: [
-                                                '#fde0dd', '#fcc5c0', '#fa9fb5', '#f768a1', '#dd3497', '#ae017e'
+                                data: [12, 19, 3, 5, 2, 5],
+                                backgroundColor: [
+                                    '#fde0dd', '#fcc5c0', '#fa9fb5', '#f768a1', '#dd3497', '#ae017e'
+                                ],
+                                borderWidth: 0,
+                                // data: {
+                                //     datasets: [
+                                //         {
+                                //             data: [12, 19, 3, 5, 2, 5],
+                                //             backgroundColor: [
+                                //                 '#fde0dd', '#fcc5c0', '#fa9fb5', '#f768a1', '#dd3497', '#ae017e'
+                                //             ],
+                                //             borderColor: [
+                                //                 '#fde0dd', '#fcc5c0', '#fa9fb5', '#f768a1', '#dd3497', '#ae017e'
 
-                                            ],
-                                            borderWidth: 2
-                                        }
-                                    ]
-                                },
+                                //             ],
+                                //             borderWidth: 2
+                                //         }
+                                //     ]
+                                // },
                                 listItems: [{ id: 1, text: "FistListItem" }],
                                 color: 'black',
                                 defaultCode: "<span>Hello code</span>"

@@ -9,9 +9,12 @@ import {
     FormatAlignRightIcon,
     FormatColorFillIcon,
     FormatAlignCenterIcon,
-    AlignVerticalTopIcon
+    AlignVerticalTopIcon,
+    MarginIcon,
+    PaddingIcon
 } from "reader/icons";
 import { AddCustomPicker } from '../AddCustomPicker';
+import { SectionSize } from '../SectionSize';
 import { EditSectionSettings } from './styled';
 
 interface Props {
@@ -24,8 +27,8 @@ interface Props {
 const EditSectionDialog = ({ openDialog, displayDirection, handleNewFeatures, sectionToEdit }: Props) => {
     const [openColorPicker, setOpenColorPicker] = useState<boolean>(false);
     const [pickerColor, setPickerColor] = useState<string>('#f6f4f4')
-    const [margin, setMargin] = useState<number>(5)
-    const [padding, setPadding] = useState<number>(5)
+    const [openModal, setOpenModal] = useState<boolean>(false)
+    const [feature, setFeature] = useState<string>('')
 
     return <>{openDialog && <EditSectionSettings>
         <Icon
@@ -57,16 +60,7 @@ const EditSectionDialog = ({ openDialog, displayDirection, handleNewFeatures, se
                 onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-end' })} />
         </>
         }
-        <span style={{ margin: '2px' }}>
-            <Input type="number"
-                value={margin}
-                onChange={(e) => {
-                    setMargin(Number(e.target.value))
-                    handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { margin: Number(e.target.value) })
-                }}
-                width={'50px'}
-            /></span>
-        <span style={{ margin: '2px' }}>
+        {/* <span>
             <Input type="number"
                 value={padding}
                 onChange={(e) => {
@@ -74,7 +68,25 @@ const EditSectionDialog = ({ openDialog, displayDirection, handleNewFeatures, se
                     handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { padding: Number(e.target.value) })
                 }}
                 width={'50px'}
-            /></span>
+            />
+        </span> */}
+        {/* ++++++++++++++++++++++++++++++++++++++ */}
+        <Icon iconName={<MarginIcon />} onClick={() => {
+            setOpenModal(true)
+            setFeature('margin')
+        }} />
+        <Icon iconName={<PaddingIcon />} onClick={() => {
+            setOpenModal(true)
+            setFeature('padding')
+        }} />
+        <SectionSize
+            openModal={openModal}
+            setModal={setOpenModal}
+            feature={feature}
+            handleNewFeatures={handleNewFeatures}
+            section={sectionToEdit.section}
+            page={sectionToEdit.page} />
+        {/* ++++++++++++++++++++++++++++++++++++++++++ */}
         <Icon
             iconName={<FormatColorFillIcon />}
             onClick={() => setOpenColorPicker(!openColorPicker)} />

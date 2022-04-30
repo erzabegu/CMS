@@ -7,7 +7,7 @@ const FileDetailsWrapper = styled.div`
 `
 const SectionsWrapper = styled.div`
     flex-grow: 10;
-    max-width: 900px;
+    // max-width: 900px;
     padding: 20px;
     display: flex;
     flex-direction: column;

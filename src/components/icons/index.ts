@@ -16,11 +16,12 @@ import DonutLargeSharpIcon from '@mui/icons-material/DonutLargeSharp';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import ColorizeIcon from '@mui/icons-material/Colorize';
+import PaddingIcon from '@mui/icons-material/Padding';
+import MarginIcon from '@mui/icons-material/Margin';
 import ImageIcon from '@mui/icons-material/Image';
+import CodeIcon from '@mui/icons-material/Code';
 import ListIcon from '@mui/icons-material/List';
 import AddIcon from '@mui/icons-material/Add';
-import CodeIcon from '@mui/icons-material/Code';
-import MarginIcon from '@mui/icons-material/Margin';
 
 
 export {
@@ -46,5 +47,6 @@ export {
     ListIcon,
     FormatListBulletedIcon,
     CodeIcon,
-    MarginIcon
+    MarginIcon,
+    PaddingIcon
 }
