@@ -1,6 +1,5 @@
-import { RenderChart, RenderCode, RenderImage, RenderList, RenderText } from "reader/molecules"
-import ReactMarkdown from 'react-markdown'
-import rehypeHighlight from 'rehype-highlight'
+import { useEffect } from "react";
+import { RenderChart, RenderCode, RenderImage, RenderLineChart, RenderList, RenderText } from "reader/molecules"
 
 
 interface Props {
@@ -14,6 +13,9 @@ interface Props {
 
 
 const RenderItems = ({ type, item, handleUpdate, handleUpdateWithSection, sectionId, pageId }: Props) => {
+    useEffect(() => {
+        console.log(type, "type")
+    }, [type])
     const handleComponent = () => {
         switch (type) {
             case 'text':
@@ -26,8 +28,8 @@ const RenderItems = ({ type, item, handleUpdate, handleUpdateWithSection, sectio
                 return <RenderList item={item} handleUpdate={handleUpdate} handleUpdateWithSection={handleUpdateWithSection} sectionId={sectionId} pageId={pageId} />
             case 'code':
                 return <RenderCode item={item} handleUpdate={handleUpdate} />
-            case 'chart1':
-                return <h1>Chart1</h1>
+            case 'lineChart':
+                return <RenderLineChart item={item} handleUpdate={handleUpdate}  />;
             default:
                 break;
         }

@@ -19,5 +19,6 @@ const StyledWidgets = styled.div`
     max-width: 40px;
     border-radius: 5px;
     padding: 6px 2px;
+    position: relative;
 `
 export { FileDetailsWrapper, StyledWidgets, SectionsWrapper }

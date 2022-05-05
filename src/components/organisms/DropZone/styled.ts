@@ -19,7 +19,7 @@ const StyledDroppableContainer = styled.div<IStyledSection>`
     padding-bottom:${(props) => props.paddingBottom ? `${props.paddingBottom}px` : '5px'};
     justify-content: space-around;
     border-radius: 5px;
-    min-height: 150px;
+    min-height: 180px;
     flex-wrap: wrap;
 `
 const Styled = styled.span` 

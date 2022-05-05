@@ -23,6 +23,7 @@ interface Props {
     max?: number;
     min?: number;
     display?: string;
+    maxWidth?: any;
     value?: string | number;
 
     onChange?(e: React.ChangeEvent<HTMLInputElement>): void;

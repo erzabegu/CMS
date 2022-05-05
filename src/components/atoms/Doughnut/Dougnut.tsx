@@ -1,6 +1,5 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Chart } from 'chart.js';
-import { useEffect, useState } from 'react';
-import { Doughnut, Pie } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 Chart.overrides.doughnut

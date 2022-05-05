@@ -21,12 +21,6 @@ const EditChartDialog = ({ openEditDialog, item, handleUpdate }: Props) => {
         handleUpdate(todos)
     }
 
-    // const handleColorChange = (index: any, color: any) => {
-    //     const todos = { ...item }
-    //     todos.backgroundColor[index] = color
-    //     handleUpdate(todos)
-    // }
-
     return <div style={{ display: 'flex', flexDirection: 'column', marginTop: '3px' }}>
         {openEditDialog && <>{item.data.map((d: any, index: any) =>
             <StyledInput>
@@ -64,7 +58,6 @@ export default EditChartDialog
 const StyledInput = styled.div`
   display: flex;
   padding: 3px;
-//   justify-content: space-around;
 `
 const StyledHidden = styled.div`
     display: block;

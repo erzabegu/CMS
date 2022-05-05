@@ -48,24 +48,10 @@ const FileDetails = () => {
                                     '#fde0dd', '#fcc5c0', '#fa9fb5', '#f768a1', '#dd3497', '#ae017e'
                                 ],
                                 borderWidth: 0,
-                                // data: {
-                                //     datasets: [
-                                //         {
-                                //             data: [12, 19, 3, 5, 2, 5],
-                                //             backgroundColor: [
-                                //                 '#fde0dd', '#fcc5c0', '#fa9fb5', '#f768a1', '#dd3497', '#ae017e'
-                                //             ],
-                                //             borderColor: [
-                                //                 '#fde0dd', '#fcc5c0', '#fa9fb5', '#f768a1', '#dd3497', '#ae017e'
-
-                                //             ],
-                                //             borderWidth: 2
-                                //         }
-                                //     ]
-                                // },
                                 listItems: [{ id: 1, text: "FistListItem" }],
                                 color: 'black',
-                                defaultCode: "<span>Hello code</span>"
+                                defaultCode: "<span>Hello code</span>",
+                                lineChartData: [100, 200, 300, 300, 305, 532, 644]
                             })
                         }
                     })

@@ -12,4 +12,5 @@ export interface IDefaultText {
     fontStyle?: string;
     width?: string;
     display?: string;
+    maxWidth?: string;
 }

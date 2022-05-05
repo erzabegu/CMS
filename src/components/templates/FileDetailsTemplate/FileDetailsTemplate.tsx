@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
@@ -68,14 +68,15 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
                 </>)}
             </SectionsWrapper>
             <StyledWidgets>
-                {widgetsList.map((widget) => <WidgetList
+                {widgetsList.map((widget, index) => <WidgetList
+                    key={index}
                     handleDroppableEvent={handleDroppableEvent}
                     children={widget.iconName}
                     tipi={widget.type}
                     chartType={[
                         {
-                            "iconName": "ListIcon",
-                            "type": "chart1",
+                            "iconName": "ShowChartIcon",
+                            "type": "lineChart",
                             "src": "List"
                         }]}
                     src={widget.src} />)}

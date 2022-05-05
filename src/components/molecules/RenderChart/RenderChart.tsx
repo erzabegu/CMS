@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Doughnut } from "react-chartjs-2";
 import { DoughnutChart } from "reader/atoms"
 import styled from "styled-components";
 import { EditChartDialog } from "../EditChartDialog";

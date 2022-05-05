@@ -5,8 +5,9 @@ import PlaceholderImage from '../../assets/images/PlaceholderImage.png';
 import ChartPlaceholder from '../../assets/images/nn.png';
 import ListPlaceholder from '../../assets/images/listPlaceholder.png';
 import { StyledWrapper } from './styled';
-import { CodeIcon, DonutLargeSharpIcon, FormatListBulletedIcon, ImageIcon, ListIcon, TextFieldsIcon } from 'reader/icons';
+import { CodeIcon, DonutLargeSharpIcon, FormatListBulletedIcon, ImageIcon, ShowChartIcon, TextFieldsIcon } from 'reader/icons';
 import { useState } from 'react';
+import styled from 'styled-components';
 
 interface DropResult {
     name?: string;
@@ -33,6 +34,8 @@ const RenderIcons = (iconName: string) => {
             return <FormatListBulletedIcon />
         case 'CodeIcon':
             return <CodeIcon />
+        case 'ShowChartIcon':
+            return <ShowChartIcon />
     }
 }
 
@@ -60,7 +63,7 @@ const WidgetList = ({ handleDroppableEvent, children, tipi, src, chartType }: Dr
             const dropResult = monitor.getDropResult<DropResult>()
             if (item && dropResult) {
                 handleDroppableEvent({ ...dropResult, tipi: tipi })
-                alert(`You dropped ${item.name} into section: ${dropResult.name} page: ${dropResult.pageName} type: ${tipi}! `)
+                // alert(`You dropped ${item.name} into section: ${dropResult.name} page: ${dropResult.pageName} type: ${tipi}! `)
             }
         },
         collect: (monitor) => ({
@@ -71,16 +74,25 @@ const WidgetList = ({ handleDroppableEvent, children, tipi, src, chartType }: Dr
 
     return <StyledWrapper ref={drag} onClick={(e) => { setOpenDrag(!openDrag) }}>
         <DragPreviewImage connect={preview} src={RenderSrc(src)} />
-        {/* {console.log((RenderSrc(src) === 'http://localhost:3000/5db805baa1e23f5ff0faeabea753fc21.png'), 'source')} */}
-        {/* {openDrag && <WidgetList handleDroppableEvent={handleDroppableEvent} tipi={"chart1"} src={RenderSrc(src)} />} */}
-        {/* {openDrag && chartType.map((chart: any) => <WidgetList
-            handleDroppableEvent={handleDroppableEvent}
-            children={chart.iconName}
-            tipi={chart.type}
-        />)} */}
+        {children === "DonutLargeSharpIcon" && openDrag && chartType.map((chart: any, index: number) => <StyledDiv key={index}>
+            <WidgetList
+                key={index}
+                handleDroppableEvent={handleDroppableEvent}
+                children={chart.iconName}
+                tipi={chart.type}
+            />
+        </StyledDiv>)}
         {RenderIcons(children)}
-        {/* {RenderSrc(src) === 'http://localhost:3000/5db805baa1e23f5ff0faeabea753fc21.png' && openDrag && <WidgetList handleDroppableEvent={handleDroppableEvent} children={"erza"} tipi={'chart1'} src="" />} */}
     </StyledWrapper>
 }
 
 export default WidgetList
+
+const StyledDiv = styled.div`
+    position: absolute;
+    right: 35px;
+    display: flex;
+    align-items: center;
+    top: 72px;
+    background-color: rgb(240 231 234);
+`

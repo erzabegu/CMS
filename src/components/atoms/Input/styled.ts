@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const StyledInput = styled.input<IDefaultText>`
     width:  ${({ width }) => width ? width : '70%'};
+    max-width:  ${({ maxWidth }) => maxWidth && maxWidth};
     margin:${({ margin }) => margin ? margin : '0px auto'} ;
     background-color: ${({ backgroundColor, theme }) => !!backgroundColor ? `${backgroundColor}` : `${theme.colors.primary.lightGrey}`};
     font-size: ${({ fontSize, theme }) => !!fontSize ? `${fontSize}px` : `${theme.fontSize.sm}px`};

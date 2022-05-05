@@ -15,6 +15,7 @@ import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
 import DonutLargeSharpIcon from '@mui/icons-material/DonutLargeSharp';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
+import ShowChartIcon from '@mui/icons-material/ShowChart';
 import ColorizeIcon from '@mui/icons-material/Colorize';
 import PaddingIcon from '@mui/icons-material/Padding';
 import MarginIcon from '@mui/icons-material/Margin';
@@ -48,5 +49,6 @@ export {
     FormatListBulletedIcon,
     CodeIcon,
     MarginIcon,
-    PaddingIcon
+    PaddingIcon,
+    ShowChartIcon
 }

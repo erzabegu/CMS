@@ -10,5 +10,7 @@ export interface ISectionItem {
     fontStyle?: string;
     fontWeight?: string;
     backgroundColor?: string;
+    borderWidth?: any;
     data?: any;
+    lineChartData?: any;
 }
