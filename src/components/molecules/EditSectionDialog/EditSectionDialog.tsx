@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Icon, Input } from "reader/atoms";
+import { Icon } from "reader/atoms";
 import {
     ViewColumnRoundedIcon,
     VerticalAlignCenter,
@@ -37,7 +37,6 @@ const EditSectionDialog = ({ openDialog, displayDirection, handleNewFeatures, se
         <Icon
             iconName={<TableRowsRoundedIcon />}
             onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { displayDirection: 'row' })} />
-
         {displayDirection === 'column' ? <>
             <Icon
                 iconName={<FormatAlignLeftIcon />}
@@ -60,23 +59,12 @@ const EditSectionDialog = ({ openDialog, displayDirection, handleNewFeatures, se
                 onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-end' })} />
         </>
         }
-        {/* <span>
-            <Input type="number"
-                value={padding}
-                onChange={(e) => {
-                    setPadding(Number(e.target.value))
-                    handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { padding: Number(e.target.value) })
-                }}
-                width={'50px'}
-            />
-        </span> */}
-        {/* ++++++++++++++++++++++++++++++++++++++ */}
         <Icon iconName={<MarginIcon />} onClick={() => {
-            setOpenModal(true)
+            setOpenModal(!openModal)
             setFeature('margin')
         }} />
         <Icon iconName={<PaddingIcon />} onClick={() => {
-            setOpenModal(true)
+            setOpenModal(!openModal)
             setFeature('padding')
         }} />
         <SectionSize
@@ -86,7 +74,6 @@ const EditSectionDialog = ({ openDialog, displayDirection, handleNewFeatures, se
             handleNewFeatures={handleNewFeatures}
             section={sectionToEdit.section}
             page={sectionToEdit.page} />
-        {/* ++++++++++++++++++++++++++++++++++++++++++ */}
         <Icon
             iconName={<FormatColorFillIcon />}
             onClick={() => setOpenColorPicker(!openColorPicker)} />

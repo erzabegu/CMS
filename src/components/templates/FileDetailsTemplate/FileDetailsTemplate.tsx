@@ -72,6 +72,12 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
                     handleDroppableEvent={handleDroppableEvent}
                     children={widget.iconName}
                     tipi={widget.type}
+                    chartType={[
+                        {
+                            "iconName": "ListIcon",
+                            "type": "chart1",
+                            "src": "List"
+                        }]}
                     src={widget.src} />)}
             </StyledWidgets>
         </FileDetailsWrapper>

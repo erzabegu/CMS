@@ -14,7 +14,6 @@ interface DropResult {
     handleNewFeatures(name: any, pageName: any, feature: {}): void;
 }
 
-
 const DropZone = ({ name, children, pageName, section, handleNewFeatures, margin }: DropResult) => {
 
     const [openSectionDialog, setSectionDialog] = useState<boolean>(false)
@@ -29,7 +28,7 @@ const DropZone = ({ name, children, pageName, section, handleNewFeatures, margin
         }),
     }))
 
-    //qikjo s bon
+    //qikjo s bon duhet me kqyr pse!
     const isActive = canDrop && isOver
     let bg = '#f6f4f4'
     if (isActive) {

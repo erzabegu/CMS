@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const FileTemplateWraper = styled.div`
-  max-width: 1320px;
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;

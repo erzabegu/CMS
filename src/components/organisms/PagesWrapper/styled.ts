@@ -8,7 +8,8 @@ const Pageswrapper = styled.div`
     max-width: 200px;
     border-radius: 5px; 
     align-items: center; 
-    min-height: 86.5vh;
+    // min-height: 86.5vh;
+    // height: calc(100vh - 100px);
     text-align: center;
 `
 

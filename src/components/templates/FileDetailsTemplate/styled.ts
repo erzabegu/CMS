@@ -3,7 +3,7 @@ import styled from "styled-components"
 const FileDetailsWrapper = styled.div`
     display: flex;
     box-sizing: border-box; 
-    justify-content: stretch;
+    height: calc(100vh - 60px);
 `
 const SectionsWrapper = styled.div`
     flex-grow: 10;

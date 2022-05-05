@@ -26,6 +26,8 @@ const RenderItems = ({ type, item, handleUpdate, handleUpdateWithSection, sectio
                 return <RenderList item={item} handleUpdate={handleUpdate} handleUpdateWithSection={handleUpdateWithSection} sectionId={sectionId} pageId={pageId} />
             case 'code':
                 return <RenderCode item={item} handleUpdate={handleUpdate} />
+            case 'chart1':
+                return <h1>Chart1</h1>
             default:
                 break;
         }
