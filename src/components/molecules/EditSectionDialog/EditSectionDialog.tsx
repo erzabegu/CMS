@@ -80,6 +80,7 @@ const EditSectionDialog = ({ openDialog, displayDirection, handleNewFeatures, se
         <AddCustomPicker
             openPicker={openColorPicker}
             color={pickerColor}
+            colorsPalette={['#ffd6ff', '#e7c6ff', '#c8b6ff', '#b8c0ff', '#bbd0ff', '#ef798a', '#a53860', '#9999a1', '#e5c3d1', '#dceed1', '#aac0aa', 'transparent']}
             width={'220px'}
             onChangeComplete={(color) => {
                 setPickerColor(color.hex)

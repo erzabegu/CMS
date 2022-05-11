@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { CustomColorPicker, Input } from 'reader/atoms';
+import { CustomColorPicker, Icon, Input } from 'reader/atoms';
+import { AddIcon, RemoveIcon } from 'reader/icons';
 import styled from 'styled-components';
 import { AddCustomPicker } from '../AddCustomPicker';
 
@@ -21,21 +22,35 @@ const EditChartDialog = ({ openEditDialog, item, handleUpdate }: Props) => {
         handleUpdate(todos)
     }
 
-    return <div style={{ display: 'flex', flexDirection: 'column', marginTop: '3px' }}>
+    const addDataSet = () => {
+        const todos = { ...item }
+        todos.data.push(46)
+        handleUpdate(todos)
+    }
+
+    const removeDataSet = () => {
+        const todos = { ...item }
+        todos.data.pop()
+        handleUpdate(todos)
+    }
+
+    return <div style={{ display: 'flex', flexDirection: 'column', marginTop: '3px', position: 'absolute', zIndex: 999 }}>
         {openEditDialog && <>{item.data.map((d: any, index: any) =>
             <StyledInput>
-                <div><Input
-                    type={'number'}
-                    backgroundColor={"#d9d9d9"}
-                    key={index}
-                    value={d}
-                    // min={-1}
-                    width={'40px'}
-                    onChange={(e) => {
-                        setDataToEdit(index)
-                        handleChange(index, Number(e.target.value), null)
-                    }}
-                /></div>
+                <>
+                    <div><Input
+                        type={'number'}
+                        backgroundColor={"#d9d9d9"}
+                        key={index}
+                        value={d}
+                        // min={-1}
+                        width={'40px'}
+                        onChange={(e) => {
+                            setDataToEdit(index)
+                            handleChange(index, Number(e.target.value), null)
+                        }}
+                    /></div>
+                </>
                 <StyledHidden>
                     <AddCustomPicker
                         openPicker={true}
@@ -51,6 +66,12 @@ const EditChartDialog = ({ openEditDialog, item, handleUpdate }: Props) => {
                 </StyledHidden>
             </StyledInput>
         )}</>}
+        {openEditDialog && <Icon
+            iconName={<AddIcon />}
+            onClick={() => addDataSet()} />}
+        {openEditDialog && <Icon
+            iconName={<RemoveIcon />}
+            onClick={() => removeDataSet()} />}
     </div>
 }
 export default EditChartDialog

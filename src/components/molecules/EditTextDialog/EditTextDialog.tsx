@@ -41,6 +41,7 @@ const EditTextDialog = ({ edit, item, handleUpdate }: Props) => {
             <AddCustomPicker openPicker={openColorPicker}
                 color={item.color}
                 width={'200px'}
+                colorsPalette={['red', 'green', '#997A87', '#A6808C', '#CCB7AE', '#D6CFCB']}
                 onChangeComplete={(color) => {
                     setItemColor(color.hex)
                     handleUpdate({ ...item, color: itemColor ? itemColor : 'black' })
@@ -54,6 +55,7 @@ const EditTextDialog = ({ edit, item, handleUpdate }: Props) => {
                 openPicker={openPicker}
                 color={item.color}
                 width={'200px'}
+                colorsPalette={['#706677', '#8B7382', '#997A87', '#A6808C', '#CCB7AE', '#D6CFCB', 'transparent']}
                 onChangeComplete={(color) => {
                     handleUpdate({ ...item, backgroundColor: color.hex ? color.hex : 'white' })
                 }} />
@@ -71,4 +73,5 @@ const StyledEdit = styled.div`
     display: flex;
     position: absolute;
     padding: 2px 2px;
-`
+    height: max-content;
+    `

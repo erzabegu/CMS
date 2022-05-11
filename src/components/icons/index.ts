@@ -18,6 +18,7 @@ import TextFieldsIcon from '@mui/icons-material/TextFields';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import ColorizeIcon from '@mui/icons-material/Colorize';
 import PaddingIcon from '@mui/icons-material/Padding';
+import RemoveIcon from '@mui/icons-material/Remove';
 import MarginIcon from '@mui/icons-material/Margin';
 import ImageIcon from '@mui/icons-material/Image';
 import CodeIcon from '@mui/icons-material/Code';
@@ -46,6 +47,7 @@ export {
     ShowChartIcon,
     ColorizeIcon,
     PaddingIcon,
+    RemoveIcon,
     MarginIcon,
     ImageIcon,
     ListIcon,
