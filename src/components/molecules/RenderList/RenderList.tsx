@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Input } from 'reader/atoms';
+import { useEffect } from 'react';
+import { Icon, Input } from 'reader/atoms';
+import { AddIcon } from 'reader/icons';
 import styled from 'styled-components';
 
 interface Props {
@@ -32,7 +33,9 @@ const RenderList = ({ item, handleUpdateWithSection, pageId, sectionId }: Props)
                 </StyledListItem>
             )}
         </StyledList>
-        <StyledSpan onClick={() => addNewListItem(item.listItems.length, item.id)}>+</StyledSpan>
+        <Icon
+            iconName={<AddIcon />}
+            onClick={() => addNewListItem(item.listItems.length, item.id)} />
     </div>
 }
 

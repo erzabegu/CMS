@@ -3,11 +3,11 @@ import styled from "styled-components"
 const FileDetailsWrapper = styled.div`
     display: flex;
     box-sizing: border-box; 
-    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
+    position: relative;
 `
 const SectionsWrapper = styled.div`
     flex-grow: 10;
-    // max-width: 900px;
     padding: 20px;
     display: flex;
     flex-direction: column;

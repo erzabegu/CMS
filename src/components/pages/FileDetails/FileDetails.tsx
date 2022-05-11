@@ -5,7 +5,6 @@ import { FileDetailsTemplate } from "reader/templates";
 import { IContent, IWidgetsList } from "reader/types";
 import { getWidgetList } from "src/services/DocumentServies";
 
-
 const FileDetails = () => {
     const [fileDetails, setFileDetails] = useState<Array<IContent>>([])
     const [widgetsList, setWidgestList] = useState<Array<IWidgetsList>>([])
