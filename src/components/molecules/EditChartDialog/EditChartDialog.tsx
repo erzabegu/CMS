@@ -34,23 +34,21 @@ const EditChartDialog = ({ openEditDialog, item, handleUpdate }: Props) => {
         handleUpdate(todos)
     }
 
-    return <div style={{ display: 'flex', flexDirection: 'column', marginTop: '3px', position: 'absolute', zIndex: 999 }}>
-        {openEditDialog && <>{item.data.map((d: any, index: any) =>
+    return <StyledEditWrapper>
+        {openEditDialog && item.data.length > 0 && <>{item.data.map((d: any, index: any) =>
             <StyledInput>
-                <>
-                    <div><Input
-                        type={'number'}
-                        backgroundColor={"#d9d9d9"}
-                        key={index}
-                        value={d}
-                        // min={-1}
-                        width={'40px'}
-                        onChange={(e) => {
-                            setDataToEdit(index)
-                            handleChange(index, Number(e.target.value), null)
-                        }}
-                    /></div>
-                </>
+                <div><Input
+                    type={'number'}
+                    backgroundColor={"#d9d9d9"}
+                    key={index}
+                    value={d}
+                    // min={-1}
+                    width={'40px'}
+                    onChange={(e) => {
+                        setDataToEdit(index)
+                        handleChange(index, Number(e.target.value), null)
+                    }}
+                /></div>
                 <StyledHidden>
                     <AddCustomPicker
                         openPicker={true}
@@ -66,13 +64,13 @@ const EditChartDialog = ({ openEditDialog, item, handleUpdate }: Props) => {
                 </StyledHidden>
             </StyledInput>
         )}</>}
-        {openEditDialog && <Icon
+        {openEditDialog && item.data.length > 0 && <Icon
             iconName={<AddIcon />}
             onClick={() => addDataSet()} />}
-        {openEditDialog && <Icon
+        {/* {openEditDialog && <Icon
             iconName={<RemoveIcon />}
-            onClick={() => removeDataSet()} />}
-    </div>
+            onClick={() => removeDataSet()} />} */}
+    </StyledEditWrapper>
 }
 export default EditChartDialog
 
@@ -85,4 +83,11 @@ const StyledHidden = styled.div`
     ${StyledInput}:hover & {
         display: block;
     }
+`
+const StyledEditWrapper = styled.div`
+    display: flex; 
+    flex-direction: column; 
+    margin-top: 3px;
+    position: absolute; 
+    z-index: 999; 
 `

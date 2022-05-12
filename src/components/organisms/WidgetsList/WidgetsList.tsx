@@ -5,7 +5,7 @@ import PlaceholderImage from '../../assets/images/PlaceholderImage.png';
 import ChartPlaceholder from '../../assets/images/nn.png';
 import ListPlaceholder from '../../assets/images/listPlaceholder.png';
 import { StyledWrapper } from './styled';
-import { CodeIcon, DonutLargeSharpIcon, FormatListBulletedIcon, ImageIcon, ShowChartIcon, TextFieldsIcon } from 'reader/icons';
+import { CodeIcon, DonutLargeSharpIcon, FormatListBulletedIcon, ImageIcon, ShowChartIcon, TableChartIcon, TextFieldsIcon } from 'reader/icons';
 import { useState } from 'react';
 import styled from 'styled-components';
 
@@ -36,6 +36,8 @@ const RenderIcons = (iconName: string) => {
             return <CodeIcon />
         case 'ShowChartIcon':
             return <ShowChartIcon />
+        case 'TableChartIcon':
+            return <TableChartIcon />
     }
 }
 
@@ -63,7 +65,7 @@ const WidgetList = ({ handleDroppableEvent, children, tipi, src, chartType }: Dr
             const dropResult = monitor.getDropResult<DropResult>()
             if (item && dropResult) {
                 handleDroppableEvent({ ...dropResult, tipi: tipi })
-                // alert(`You dropped ${item.name} into section: ${dropResult.name} page: ${dropResult.pageName} type: ${tipi}! `)
+                alert(`You dropped ${item.name} into section: ${dropResult.name} page: ${dropResult.pageName} type: ${tipi}! `)
             }
         },
         collect: (monitor) => ({

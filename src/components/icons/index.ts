@@ -14,6 +14,7 @@ import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
 import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
 import DonutLargeSharpIcon from '@mui/icons-material/DonutLargeSharp';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
+import TableChartIcon from '@mui/icons-material/TableChart';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import ColorizeIcon from '@mui/icons-material/Colorize';
@@ -43,6 +44,7 @@ export {
     AlignVerticalBottom,
     VerticalAlignCenter,
     UploadFileIcon,
+    TableChartIcon,
     TextFieldsIcon,
     ShowChartIcon,
     ColorizeIcon,

@@ -18,13 +18,13 @@ interface Props {
     fontStyle?: any;
     accept?: string;
     width?: string;
-    backgroundColor?: string;
-    contenteditable?: boolean;
     max?: number;
     min?: number;
     display?: string;
     maxWidth?: any;
     value?: string | number;
+    backgroundColor?: string;
+    contenteditable?: boolean;
 
     onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
     onBlur?(): void

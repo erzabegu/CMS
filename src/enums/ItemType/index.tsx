@@ -4,5 +4,6 @@ export enum ItemType {
     CHART = "chart",
     LIST = "list",
     CODE = "code",
-    LINECHART = "lineChart"
+    LINECHART = "lineChart",
+    TABLE = "table"
 }

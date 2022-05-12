@@ -47,7 +47,7 @@ const FileDetails = () => {
                                     '#fde0dd', '#fcc5c0', '#fa9fb5', '#f768a1', '#dd3497', '#ae017e'
                                 ],
                                 borderWidth: 0,
-                                listItems: [{ id: 1, text: "FistListItem" }],
+                                listItems: [{ id: 1, text: "FistListItem", color: 'black' }],
                                 color: 'black',
                                 defaultCode: "<span>Hello code</span>",
                                 lineChartData: [100, 200, 300, 300, 305, 532, 644]

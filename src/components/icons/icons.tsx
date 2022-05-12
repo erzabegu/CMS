@@ -13,6 +13,7 @@ import FileOpenOutlinedIcon from '@mui/icons-material/FileOpenOutlined';
 import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
 import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
 import DonutLargeSharpIcon from '@mui/icons-material/DonutLargeSharp';
+import TableChartIcon from '@mui/icons-material/TableChart';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
@@ -41,6 +42,7 @@ export {
     DonutLargeSharpIcon,
     AlignVerticalBottom,
     VerticalAlignCenter,
+    TableChartIcon,
     UploadFileIcon,
     TextFieldsIcon,
     ShowChartIcon,

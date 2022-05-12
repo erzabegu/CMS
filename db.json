@@ -67,6 +67,11 @@
       "iconName": "CodeIcon",
       "type": "code",
       "src": "Code"
+    },
+    {
+      "iconName": "TableChartIcon",
+      "type": "table",
+      "src": "Table"
     }
   ]
 }

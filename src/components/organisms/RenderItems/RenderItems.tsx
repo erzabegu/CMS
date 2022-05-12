@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { RenderChart, RenderCode, RenderImage, RenderLineChart, RenderList, RenderText } from "reader/molecules"
+import { RenderChart, RenderCode, RenderImage, RenderLineChart, RenderList, RenderTable, RenderText } from "reader/molecules"
 import { ItemType } from "src/enums";
 import { RenderItemsWrapper } from "../RenderItemWrarpper";
 
@@ -23,6 +23,7 @@ const RenderItems = ({ type, item, handleUpdate, handleUpdateWithSection, sectio
         list: ReactElement,
         code: ReactElement,
         lineChart: ReactElement,
+        table: ReactElement
     }
 
     const handle: ItemTypeInterface = {
@@ -32,6 +33,7 @@ const RenderItems = ({ type, item, handleUpdate, handleUpdateWithSection, sectio
         [ItemType.LIST]: <RenderList item={item} handleUpdate={handleUpdate} handleUpdateWithSection={handleUpdateWithSection} sectionId={sectionId} pageId={pageId} />,
         [ItemType.CODE]: <RenderCode item={item} handleUpdate={handleUpdate} />,
         [ItemType.LINECHART]: <RenderLineChart item={item} handleUpdate={handleUpdate} />,
+        [ItemType.TABLE]: <RenderTable />
     }
 
     return <RenderItemsWrapper>{handle[type as keyof ItemTypeInterface]}</RenderItemsWrapper>

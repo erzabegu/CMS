@@ -2,16 +2,16 @@ import { useState } from 'react'
 import { Icon } from "reader/atoms";
 import {
     ViewColumnRoundedIcon,
-    VerticalAlignCenter,
-    AlignVerticalBottom,
-    TableRowsRoundedIcon,
-    FormatAlignLeftIcon,
-    FormatAlignRightIcon,
-    FormatColorFillIcon,
     FormatAlignCenterIcon,
     AlignVerticalTopIcon,
+    TableRowsRoundedIcon,
+    FormatAlignRightIcon,
+    AlignVerticalBottom,
+    FormatAlignLeftIcon,
+    FormatColorFillIcon,
+    VerticalAlignCenter,
+    PaddingIcon,
     MarginIcon,
-    PaddingIcon
 } from "reader/icons";
 import { AddCustomPicker } from '../AddCustomPicker';
 import { SectionSize } from '../SectionSize';
@@ -30,13 +30,27 @@ const EditSectionDialog = ({ openDialog, displayDirection, handleNewFeatures, se
     const [openModal, setOpenModal] = useState<boolean>(false)
     const [feature, setFeature] = useState<string>('')
 
+    const [activeColumn, setActiveColumn] = useState<boolean>(false)
+    const [activeRow, setActiveRow] = useState<boolean>(false)
+
     return <>{openDialog && <EditSectionSettings>
         <Icon
             iconName={<ViewColumnRoundedIcon />}
-            onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { displayDirection: 'column' })} />
+            // backgroundColor={activeColumn && '#FBF4FB'}
+            color={activeColumn && 'black'}
+            onClick={() => {
+                setActiveColumn(true)
+                setActiveRow(false)
+                handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { displayDirection: 'column' })
+            }} />
         <Icon
             iconName={<TableRowsRoundedIcon />}
-            onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { displayDirection: 'row' })} />
+            color={activeRow && 'black'}
+            onClick={() => {
+                setActiveRow(true)
+                setActiveColumn(false)
+                handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { displayDirection: 'row' })
+            }} />
         {displayDirection === 'column' ? <>
             <Icon
                 iconName={<FormatAlignLeftIcon />}
@@ -59,21 +73,22 @@ const EditSectionDialog = ({ openDialog, displayDirection, handleNewFeatures, se
                 onClick={() => handleNewFeatures(sectionToEdit.section, sectionToEdit.page, { alignItems: 'flex-end' })} />
         </>
         }
-        <Icon iconName={<MarginIcon />} onClick={() => {
+        <span><Icon iconName={<MarginIcon />} onClick={() => {
             setOpenModal(!openModal)
             setFeature('margin')
         }} />
-        <Icon iconName={<PaddingIcon />} onClick={() => {
-            setOpenModal(!openModal)
-            setFeature('padding')
-        }} />
-        <SectionSize
-            openModal={openModal}
-            setModal={setOpenModal}
-            feature={feature}
-            handleNewFeatures={handleNewFeatures}
-            section={sectionToEdit.section}
-            page={sectionToEdit.page} />
+            <Icon iconName={<PaddingIcon />} onClick={() => {
+                setOpenModal(!openModal)
+                setFeature('padding')
+            }} />
+            <SectionSize
+                openModal={openModal}
+                setModal={setOpenModal}
+                feature={feature}
+                handleNewFeatures={handleNewFeatures}
+                section={sectionToEdit.section}
+                page={sectionToEdit.page} />
+        </span>
         <Icon
             iconName={<FormatColorFillIcon />}
             onClick={() => setOpenColorPicker(!openColorPicker)} />

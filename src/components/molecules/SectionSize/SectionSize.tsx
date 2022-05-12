@@ -21,7 +21,7 @@ const SectionSize = ({ openModal, handleNewFeatures, setModal, feature, section,
     const [bottomM, setBootomM] = useState<number>(5);
     const [bottomP, setBootomP] = useState<number>(5);
 
-    return <div style={{ position: 'relative' }}>
+    return <>
         {openModal && <Styled>
             <Input
                 type="number"
@@ -68,13 +68,12 @@ const SectionSize = ({ openModal, handleNewFeatures, setModal, feature, section,
                 width={'50px'}
             />
         </Styled>}
-    </div>
+    </>
 }
 
 export default SectionSize;
 
 const Styled = styled.div`
-    position: absolute;
-    top: 10px;
-    left: 30px;
+    display: flex;
+    flex-direction: column;
 `
