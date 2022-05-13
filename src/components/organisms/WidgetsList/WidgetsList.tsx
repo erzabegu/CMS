@@ -4,10 +4,9 @@ import Text from '../../assets/images/text.png';
 import PlaceholderImage from '../../assets/images/PlaceholderImage.png';
 import ChartPlaceholder from '../../assets/images/nn.png';
 import ListPlaceholder from '../../assets/images/listPlaceholder.png';
-import { StyledWrapper } from './styled';
+import { StyledDiv, StyledWrapper } from './styled';
 import { CodeIcon, DonutLargeSharpIcon, FormatListBulletedIcon, ImageIcon, ShowChartIcon, TableChartIcon, TextFieldsIcon } from 'reader/icons';
 import { useState } from 'react';
-import styled from 'styled-components';
 
 interface DropResult {
     name?: string;
@@ -90,11 +89,3 @@ const WidgetList = ({ handleDroppableEvent, children, tipi, src, chartType }: Dr
 
 export default WidgetList
 
-const StyledDiv = styled.div`
-    position: absolute;
-    right: 35px;
-    display: flex;
-    align-items: center;
-    top: 72px;
-    background-color: rgb(240 231 234);
-`

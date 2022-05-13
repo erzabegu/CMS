@@ -50,7 +50,9 @@ const FileDetails = () => {
                                 listItems: [{ id: 1, text: "FistListItem", color: 'black' }],
                                 color: 'black',
                                 defaultCode: "<span>Hello code</span>",
-                                lineChartData: [100, 200, 300, 300, 305, 532, 644]
+                                lineChartData: [100, 200, 300, 300, 305, 532, 644],
+                                tableHeaders: [{ Header: 'ID', accessor: 'ID' }, { Header: 'Age', accessor: 'age' }],
+                                tableData: [{ ID: 2, age: 21 }]
                             })
                         }
                     })

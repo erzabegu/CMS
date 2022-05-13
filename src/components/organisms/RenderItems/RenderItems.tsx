@@ -3,7 +3,6 @@ import { RenderChart, RenderCode, RenderImage, RenderLineChart, RenderList, Rend
 import { ItemType } from "src/enums";
 import { RenderItemsWrapper } from "../RenderItemWrarpper";
 
-
 interface Props {
     type: string;
     item: any;
@@ -33,7 +32,7 @@ const RenderItems = ({ type, item, handleUpdate, handleUpdateWithSection, sectio
         [ItemType.LIST]: <RenderList item={item} handleUpdate={handleUpdate} handleUpdateWithSection={handleUpdateWithSection} sectionId={sectionId} pageId={pageId} />,
         [ItemType.CODE]: <RenderCode item={item} handleUpdate={handleUpdate} />,
         [ItemType.LINECHART]: <RenderLineChart item={item} handleUpdate={handleUpdate} />,
-        [ItemType.TABLE]: <RenderTable />
+        [ItemType.TABLE]: <RenderTable item={item} handleUpdate={handleUpdate} />
     }
 
     return <RenderItemsWrapper>{handle[type as keyof ItemTypeInterface]}</RenderItemsWrapper>
