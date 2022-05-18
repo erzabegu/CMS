@@ -36,7 +36,7 @@ const RenderList = ({ item, handleUpdateWithSection, pageId, sectionId }: Props)
                         textAlign={"left"}
                         defaultValue={item.text}
                     />
-                    {openEdit && listItemToEdit === item.id && <h5>openEditDialog</h5>}
+                    {openEdit && listItemToEdit === item.id && <h5>to do</h5>}
                 </StyledListItem>
             )}
         </StyledList>

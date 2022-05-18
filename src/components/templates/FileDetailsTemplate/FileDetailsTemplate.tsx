@@ -35,15 +35,15 @@ const FileDetailsTemplate = ({ fileDetails, setFileDetails, handleDroppableEvent
     const handleUpdate = (passedItem: any) => {
         const editableItem = { ...itemToEdit }
         const newTodos = [...fileDetails];
-        newTodos[editableItem.page - 1].sections[editableItem.section - 1].items[editableItem.item] = passedItem
+        newTodos[editableItem.page - 1].sections[editableItem && editableItem.section - 1].items[editableItem.item] = passedItem
         setFileDetails(newTodos)
     }
 
     const handleUpdateWithSection = (passedItem: any, pageId: any, sectionId: any, itemId: any) => {
         const newTodos = [...fileDetails];
         newTodos[pageId - 1].sections[sectionId - 1].items[itemId] = passedItem
+        setFileDetails(newTodos)
     }
-
 
     return <DndProvider backend={HTML5Backend}>
         <Header />
