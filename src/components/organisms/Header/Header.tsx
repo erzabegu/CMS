@@ -1,20 +1,20 @@
 import { StyledHeader } from './styled';
 import { Image, UserAvatar } from 'reader/atoms';
-import AxiansImage from '../../assets/images/axians.png';
+import CmsImage from '../../assets/images/cms.jpg';
 import { theme } from 'reader/styles';
 
 const Header = () => {
     return <StyledHeader>
         <Image
-            src={AxiansImage}
+            src={CmsImage}
             height={50}
-            width={100}
+            width={200}
             style={{ objectFit: 'contain' }} />
         <UserAvatar
             name={'Ereza'}
             height={'30px'}
             width={'30px'}
-            backgroundColor={`${theme.colors.primary.axiansPink}`} />
+            backgroundColor={`${theme.colors.primary.Pink}`} />
     </StyledHeader>
 }
 

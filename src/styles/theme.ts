@@ -3,8 +3,8 @@ import {ITheme} from "../types/ITheme";
 export const theme: ITheme = {
     colors: {
         primary: {
-            axiansPink: "#A20067",
-            axiansBlue: "#005eb8",
+            Pink: "#A20067",
+            Blue: "#005eb8",
             lightGrey: "#FCFBFB",
             black: "#383838",
             white: "#FFFFFF"

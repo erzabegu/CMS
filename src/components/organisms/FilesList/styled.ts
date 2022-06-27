@@ -16,7 +16,7 @@ const StyledPlus = styled.div`
     z-index: 999;
     text-align: center;
     border-radius: 50%;
-    background-color: ${theme.colors.primary.axiansPink};
+    background-color: ${theme.colors.primary.Pink};
     color:  ${theme.colors.primary.white};
     
 `

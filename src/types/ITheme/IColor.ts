@@ -1,7 +1,7 @@
 export interface IColor {
     primary: {
-        axiansPink: string;
-        axiansBlue: string;
+        Pink: string;
+        Blue: string;
         lightGrey: string;
         black: string;
         white: string;

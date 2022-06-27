@@ -9,7 +9,7 @@ const store = configureStore({
     reducer: {
         content: contentSlice
     },
-    devTools: { name: "axiansReader" },
+    devTools: { name: "Reader" },
 });
 
 export default store;
