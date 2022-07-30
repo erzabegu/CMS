@@ -34,7 +34,6 @@ const RenderItems = ({ type, item, handleUpdate, handleUpdateWithSection, sectio
         [ItemType.LINECHART]: <RenderLineChart item={item} handleUpdate={handleUpdate} />,
         [ItemType.TABLE]: <RenderTable handleUpdateWithSection={handleUpdateWithSection} sectionId={sectionId} pageId={pageId} item={item} handleUpdate={handleUpdate} />
     }
-    //try using it in every part
     return <RenderItemsWrapper>{handle[type as keyof ItemTypeInterface]}</RenderItemsWrapper>
 
 }
